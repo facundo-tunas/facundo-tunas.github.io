@@ -1,0 +1,24 @@
+html {
+  /* disable scrollbar */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+
+  border-radius: var(--outer-radius);
+  padding: var(--inner-padding);
+
+  transition: background 0.3s ease;
+}
+
+.zone {
+  min-height: 60vh;
+}

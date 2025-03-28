@@ -9,6 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.5.5"
+    "astro": "^5.5.5",
+    "astro-feather": "^1.0.0",
+    "lucide-astro": "^0.485.0"
+  },
+  "devDependencies": {
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1"
   }
 }

@@ -1,0 +1,17 @@
+:root {
+  --background: #fff;
+  --backpage: #000;
+
+  --text: #000;
+
+  --outer-page-padding: 0.25rem;
+  --outer-radius: 5px;
+
+  --inner-padding: 0.5rem;
+}
+:root.dark {
+  --background: #000000;
+  --backpage: #fff;
+
+  --text: #fff;
+}

@@ -1,0 +1,50 @@
+---
+import { MoonIcon, SunIcon } from "astro-feather";
+---
+
+<button id="theme-switcher" aria-label="Toggle dark mode">
+  <span class="sun"> <SunIcon /> </span>
+  <span class="moon">
+    <MoonIcon />
+  </span>
+
+  <script>
+    const getThemePreference = (): string => {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+    };
+
+    const applyTheme = (theme: string) => {
+      document.documentElement.classList.toggle("dark", theme === "dark");
+    };
+
+    const toggleTheme = async (element: HTMLElement) => {
+      element.classList.add("animate");
+      await new Promise((resolve) => setTimeout(resolve, 300));
+
+      const currentTheme = document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+
+      setTimeout(() => {
+        element.classList.remove("animate");
+      }, 600);
+
+      applyTheme(newTheme);
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const theme = getThemePreference();
+      applyTheme(theme);
+
+      const themeSwitcher = document.getElementById("theme-switcher");
+      if (themeSwitcher) {
+        themeSwitcher.addEventListener("click", () =>
+          toggleTheme(themeSwitcher),
+        );
+      }
+    });
+  </script>
+</button>
