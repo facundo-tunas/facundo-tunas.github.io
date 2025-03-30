@@ -1,0 +1,96 @@
+---
+import BlogPosts from "./BlogPosts.astro";
+import styles from "./Content.module.css";
+---
+
+<div class={styles.contentContainer}>
+  <div class={styles.viewToggle}>
+    <button class={styles.active} data-view="about" id="aboutBtn">About</button>
+    <button data-view="blog" id="blogBtn">Blog</button>
+  </div>
+  <div class={styles.viewContent}>
+    <div class={styles.about} id="aboutContent">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ipsam,
+        facere et voluptate neque numquam quo dolores iure consequatur, labore,
+        autem repellendus consequuntur maiores asperiores. Ipsum obcaecati
+        adipisci autem hic delectus velit omumquam accusantium. Sequi cumque
+        reprehenderit nis unde blanditiis. Iusto possimus
+        est veniam cupiditate fuga itaque naut illo facilis.
+      </p>
+    </div>
+    <div class={styles.blogs} id="blogContent" style="display: none;">
+      <BlogPosts />
+    </div>
+  </div>
+</div>
+<script>
+  import styles from "./Content.module.css";
+
+  interface ViewConfig {
+    btnId: string;
+    contentId: string;
+    isDefault: boolean;
+  }
+
+  interface ViewConfigMap {
+    [key: string]: ViewConfig;
+  }
+
+  interface ContentElementMap {
+    [key: string]: HTMLElement | null;
+  }
+
+  const views: ViewConfigMap = {
+    about: {
+      btnId: "aboutBtn",
+      contentId: "aboutContent",
+      isDefault: true,
+    },
+    blog: {
+      btnId: "blogBtn",
+      contentId: "blogContent",
+      isDefault: false,
+    },
+  };
+
+  const viewButtons =
+    document.querySelectorAll<HTMLButtonElement>("[data-view]");
+
+  const viewContents: ContentElementMap = Object.fromEntries(
+    Object.values(views).map((view) => [
+      view.contentId,
+      document.getElementById(view.contentId),
+    ]),
+  );
+
+  let currentView =
+    Object.keys(views).find((key) => views[key].isDefault) || "about";
+
+  function changeView(newView: string): void {
+    if (newView === currentView) return;
+
+    Object.values(viewContents).forEach((element) => {
+      if (element) element.style.display = "none";
+    });
+
+    const viewConfig = views[newView];
+    if (!viewConfig) return; // Guard against invalid view names
+
+    const targetContent = viewContents[viewConfig.contentId];
+    if (targetContent) targetContent.style.display = "flex";
+
+    viewButtons.forEach((button) => {
+      button.classList.toggle(styles.active, button.dataset.view === newView);
+    });
+
+    currentView = newView;
+  }
+
+  viewButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const view = button.dataset.view;
+      if (view) changeView(view);
+    });
+  });
+</script>

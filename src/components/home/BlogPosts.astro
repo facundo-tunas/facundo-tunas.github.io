@@ -1,0 +1,50 @@
+---
+import styles from "./BlogPosts.module.css";
+
+interface Post {
+  id: number;
+  imageLink: string;
+  showCarousel: boolean;
+  published: boolean;
+  createdAt: string;
+  title: string;
+  summary: string;
+  likes: number;
+  userId: number;
+  user: object;
+}
+
+let blogPosts: Post[] = [];
+
+const fetchPosts = async () => {
+  try {
+    let response = await fetch(
+      "https://biological-adan-uruwhy-c51a7e68.koyeb.app/posts/all?limit=10&page=1",
+    );
+    let data = await response.json();
+
+    return data.posts;
+  } catch (error) {
+    return [];
+  }
+};
+
+blogPosts = await fetchPosts();
+---
+
+{
+  blogPosts.length > 0 ? (
+    blogPosts.map((post: Post) => (
+      <a
+        class={styles.post}
+        href={`https://odin-blog-frontend.vercel.app/posts/${post.id}`}
+        target="_blank"
+      >
+        <h4>{post.title}</h4>
+        <p>{post.summary}</p>
+      </a>
+    ))
+  ) : (
+    <p>No blog posts available at the moment.</p>
+  )
+}

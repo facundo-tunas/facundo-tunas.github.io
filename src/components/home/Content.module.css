@@ -1,0 +1,50 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  overflow: scroll;
+  height: 100%;
+}
+
+.viewToggle {
+  align-self: flex-start;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+
+  > button {
+    --color: var(--gray-text);
+
+    font-family: inherit;
+    font-weight: 700;
+    color: var(--color);
+
+    border: none;
+    box-shadow: 0px 2px var(--color);
+
+    background-color: transparent;
+
+    &:hover {
+      --color: var(--subtitle);
+    }
+    &.active {
+      --color: var(--text);
+    }
+  }
+}
+
+.about,
+.blogs {
+  height: 100%;
+  overflow: scroll;
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  padding: 0.15rem;
+}

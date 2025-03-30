@@ -1,0 +1,19 @@
+.post {
+  --color: var(--text);
+  padding: 0.25rem;
+
+  box-shadow: -2px 0px var(--color);
+
+  line-height: 1.15;
+  color: var(--color);
+  text-decoration: none;
+
+  transition: 0.15s;
+  p {
+    color: var(--gray-text);
+  }
+
+  &:hover {
+    --color: var(--link-hover);
+  }
+}

@@ -9,9 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^4.2.2",
+    "@fontsource/lato": "^5.2.5",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
     "astro": "^5.5.5",
     "astro-feather": "^1.0.0",
-    "lucide-astro": "^0.485.0"
+    "lucide-astro": "^0.485.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "prettier": "3.5.3",

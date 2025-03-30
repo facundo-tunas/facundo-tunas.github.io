@@ -17,8 +17,11 @@ body {
   padding: var(--inner-padding);
 
   transition: background 0.3s ease;
+  font-family: Lato;
+
+  font-size: 1.1rem;
 }
 
 .zone {
-  min-height: 60vh;
+  min-height: 70vh;
 }

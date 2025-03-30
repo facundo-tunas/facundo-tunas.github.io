@@ -1,5 +1,21 @@
 ---
+import Content from "../components/home/Content.astro";
+import HomeImage from "../components/home/HomeImage.astro";
 import styles from "./Home.module.css";
 ---
 
-<div class={`${styles.container} zone`} id="home">Home</div>
+<div class={`${styles.container} zone`} id="home">
+  <div class={styles.image}>
+    <HomeImage />
+  </div>
+  <div class={styles.content}>
+    <div class={styles.title}>
+      <h1>Facundo Tuñas</h1>
+      <div>
+        <p class={styles.position}>Web Developer</p>
+        <p class={styles.hidden}>Self-Taught</p>
+      </div>
+    </div>
+    <Content />
+  </div>
+</div>
