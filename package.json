@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.2.2",
+    "@fontsource-variable/jetbrains-mono": "^5.2.5",
+    "@fontsource/ibm-plex-mono": "^5.2.5",
     "@fontsource/lato": "^5.2.5",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",

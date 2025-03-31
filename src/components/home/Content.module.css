@@ -39,12 +39,19 @@
 .blogs {
   height: 100%;
   overflow: scroll;
+
+  padding: 0.15rem;
+
+  line-height: 1.2;
+}
+
+.about p {
+  padding: 0 0.25rem;
+  box-shadow: -2px 0px #fff;
 }
 
 .blogs {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
-  padding: 0.15rem;
 }

@@ -21,4 +21,6 @@
 
   --inner-padding: 1rem;
   --background-transition: background 0.3s ease;
+
+  --title-font: "Jetbrains Mono Variable";
 }

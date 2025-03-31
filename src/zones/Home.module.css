@@ -49,11 +49,16 @@
 
   text-transform: uppercase;
 
+  font-family: var(--title-font);
+  line-height: 1;
   h1 {
+    word-spacing: -0.5em;
     font-weight: 900;
   }
 
   div {
+    line-height: normal;
+    word-spacing: -0.25em;
     display: flex;
     gap: 0.5rem;
     font-weight: 700;
