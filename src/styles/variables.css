@@ -20,4 +20,5 @@
   --gray-text: rgb(157, 156, 156);
 
   --inner-padding: 1rem;
+  --background-transition: background 0.3s ease;
 }
