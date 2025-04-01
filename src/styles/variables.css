@@ -23,4 +23,5 @@
   --background-transition: background 0.3s ease;
 
   --title-font: "Jetbrains Mono Variable";
+  --word-spacing-title: -0.3em;
 }
