@@ -5,7 +5,7 @@
   --link-hover: rgb(63, 186, 235);
 
   --text: #000;
-  --subtitle: #494949;
+  --subtitle: #616161;
   --gray-text: rgb(130, 130, 130);
 }
 
@@ -16,7 +16,7 @@
   --link-hover: skyblue;
 
   --text: #fff;
-  --subtitle: #d1d1d1;
+  --subtitle: #c4c4c4;
   --gray-text: rgb(157, 156, 156);
 
   --inner-padding: 1rem;

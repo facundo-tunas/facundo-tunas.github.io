@@ -24,4 +24,19 @@ body {
 
 .zone {
   min-height: 70vh;
+  width: 90%;
+  margin: auto;
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  line-height: 1;
+
+  text-transform: uppercase;
+  font-family: var(--title-font);
+  font-weight: 700;
+
+  > * {
+    word-spacing: var(--word-spacing-title);
+  }
 }

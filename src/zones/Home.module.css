@@ -40,19 +40,11 @@
   width: fit-content;
 }
 
-.title {
+.homeTitle {
   margin-top: auto;
   width: fit-content;
 
-  font-size: clamp(1.5rem, 2.5vw, 3rem);
-  line-height: 1.2;
-
-  text-transform: uppercase;
-
-  font-family: var(--title-font);
-  line-height: 1;
   h1 {
-    word-spacing: var(--word-spacing-title);
     font-weight: 900;
   }
 
@@ -61,7 +53,6 @@
     word-spacing: var(--word-spacing-title);
     display: flex;
     gap: 0.5rem;
-    font-weight: 700;
 
     align-items: center;
 
@@ -103,7 +94,8 @@
   .text {
     align-self: center;
     justify-self: center;
-    width: 90%;
+
+    width: 100%;
   }
 
   .image {
