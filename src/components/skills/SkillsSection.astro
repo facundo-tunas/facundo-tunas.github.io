@@ -1,0 +1,46 @@
+---
+import styles from "./SkillsSection.module.css";
+import 'devicon/devicon.min.css';
+const { title, items } = Astro.props;
+
+interface iconsMap {
+  [key: string]: string;
+}
+
+const iconMap: iconsMap = {
+  JavaScript: "devicon-javascript-plain ",
+  TypeScript: "devicon-typescript-plain ",
+  React: "devicon-react-original-wordmark",
+  "Node.js": "devicon-nodejs-plain-wordmark",
+  WSL: "devicon-linux-plain",
+  Prisma: "devicon-prisma-original-wordmark ",
+  npm: "devicon-npm-original-wordmark",
+  Git: "devicon-git-plain-wordmark",
+  Github: "devicon-github-original-wordmark",
+  HTML: "devicon-html5-plain-wordmark",
+  CSS: "devicon-css3-plain-wordmark",
+  Astro: "devicon-astro-plain-wordmark",
+  'Express.js': "devicon-express-original-wordmark",
+  'Discord.js': "devicon-discordjs-plain-wordmark",
+  Tauri: "devicon-tauri-plain-wordmark",
+  Webpack: "devicon-webpack-plain-wordmark",
+  VSCode: "devicon-vscode-plain",
+  PostgreSQL: "devicon-postgresql-plain-wordmark",
+  Jest: "devicon-jest-plain",
+  Notion: "devicon-notion-plain"
+};
+---
+
+<div class={styles.skillsSection}>
+  <p class="title titleSmall">{title}</p>
+  <div class={styles.skillsList}>
+    {
+      items.map((item: string) => (
+        <div class={`${styles.skillItem} title`}>
+          <i class={(iconMap[item] || "devicon-devicon-plain")} />
+        </div>
+      ))
+    }
+  </div>
+
+<style>asd</style>

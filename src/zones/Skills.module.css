@@ -1,0 +1,12 @@
+.skillsContent {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.container {
+  min-height: 0;
+  margin-bottom: 5vw;
+}

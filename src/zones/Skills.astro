@@ -1,7 +1,37 @@
 ---
+import SkillsSection from "../components/skills/SkillsSection.astro";
 import styles from "./Skills.module.css";
+
+const technologies = [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Node.js",
+  "Express.js",
+  "Discord.js",
+  "Astro",
+  "CSS",
+  "HTML",
+  "PostgreSQL",
+];
+const tools = [
+  "WSL",
+  "Prisma",
+  "npm",
+  "Git",
+  "Github",
+  "Tauri",
+  "Webpack",
+  "VSCode",
+  "Jest",
+  "Notion",
+];
 ---
 
 <div class={`${styles.container} zone`} id="skills">
-  <p class="title">Skills</p>
+  <h5 class="title">Skills</h5>
+  <div class={styles.skillsContent}>
+    <SkillsSection title="Technologies" items={technologies} />
+    <SkillsSection title="Tools" items={tools} />
+  </div>
 </div>

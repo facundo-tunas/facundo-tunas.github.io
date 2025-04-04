@@ -29,7 +29,12 @@ body {
 .zone {
   min-height: 55vh;
   width: 90%;
+
   margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .title {
@@ -43,4 +48,8 @@ body {
   > * {
     word-spacing: var(--word-spacing-title);
   }
+}
+
+.titleSmall {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
 }
