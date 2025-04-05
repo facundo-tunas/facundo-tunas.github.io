@@ -18,11 +18,32 @@
 
 .skillItem {
   display: flex;
-  justify-content: start;
-  align-items: start;
-  text-align: start;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .iconHover {
+    position: absolute;
+    z-index: -1;
+
+    font-size: 2.45em;
+  }
+
+  &:hover {
+    .iconHover {
+      opacity: 1;
+    }
+    .icon {
+      opacity: 0;
+    }
+  }
+}
+.icon {
+  background-color: var(--background);
 }
 
 .skillItem i {
   font-size: 2.5em;
+
+  transition: opacity 0.25s ease;
 }
