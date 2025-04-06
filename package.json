@@ -4,11 +4,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build --force",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.2",
     "@fontsource-variable/jetbrains-mono": "^5.2.5",
     "@fontsource/ibm-plex-mono": "^5.2.5",
@@ -20,10 +21,12 @@
     "devicon": "^2.16.0",
     "lucide-astro": "^0.485.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "prettier": "3.5.3",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-astro": "0.14.1",
+    "source-map-explorer": "^2.5.3"
   }
 }

@@ -39,7 +39,7 @@ body {
 
 .title {
   font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-  line-height: 1;
+  line-height: 1.1;
 
   text-transform: uppercase;
   font-family: var(--title-font);

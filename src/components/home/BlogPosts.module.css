@@ -3,11 +3,13 @@
   padding: 0.25rem;
 
   box-shadow: -2px 0px var(--color);
+  margin-left: 2px;
 
   color: var(--color);
   text-decoration: none;
 
   transition: 0.15s;
+  text-wrap: balance;
   p {
     color: var(--gray-text);
   }
