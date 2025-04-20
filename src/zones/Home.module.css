@@ -40,6 +40,7 @@
   margin-top: auto;
   width: fit-content;
 
+  margin-bottom: 0.2rem;
   h1 {
     font-weight: 900;
   }
@@ -55,6 +56,8 @@
     .position {
       color: var(--subtitle);
       background-color: var(--background);
+
+      transition: var(--background-transition);
     }
   }
 }
@@ -62,7 +65,7 @@
 .about {
   text-wrap: balance;
 
-  box-shadow: -2px 0px #fff;
+  box-shadow: -2px 0px var(--backpage);
   padding: 0 0.25rem;
   margin-left: 2px;
 }
