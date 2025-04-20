@@ -1,7 +1,11 @@
 ---
 import styles from "./Projects.module.css";
+import Carousel from "../components/projects/Carousel.tsx";
 ---
 
 <div class={`${styles.container} zone`} id="projects">
   <p class="title">Projects</p>
+  <Carousel client:visible />
 </div>
+
+<script></script>
