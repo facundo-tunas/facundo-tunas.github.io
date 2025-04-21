@@ -45,6 +45,7 @@ body {
   font-family: var(--title-font);
   font-weight: 700;
 
+  word-spacing: var(--word-spacing-title);
   > * {
     word-spacing: var(--word-spacing-title);
   }

@@ -47,7 +47,6 @@
 
   div {
     line-height: normal;
-    word-spacing: var(--word-spacing-title);
     display: flex;
     gap: 0.5rem;
 
