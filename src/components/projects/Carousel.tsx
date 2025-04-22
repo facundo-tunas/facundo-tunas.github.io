@@ -3,8 +3,19 @@ import styles from "./Carousel.module.css";
 import { iconMap } from "../../utilities/icons";
 
 export default function Carousel() {
-  const [current, setCurrent] = useState(0);
-  const [slidesPerView, setSlidesPerView] = useState(2);
+  const [current, setCurrent] = useState(2);
+
+  const [slideWidth, setSlideWidth] = useState(75);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSlideWidth(window.innerWidth < 768 ? 85 : 75);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const items = [
     {
@@ -30,24 +41,6 @@ export default function Carousel() {
     },
   ];
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 1024) {
-        setSlidesPerView(1);
-      } else {
-        setSlidesPerView(2);
-      }
-    };
-
-    handleResize();
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const maxSlides = Math.max(0, items.length - slidesPerView);
-
   const goToSlide = (index: number) => {
     setCurrent(index);
   };
@@ -58,22 +51,21 @@ export default function Carousel() {
         <div
           className={styles.mainProjects}
           style={{
-            transform:
-              maxSlides > 0
-                ? `translateX(-${current * (100 / slidesPerView)}%)`
-                : "none",
+            transform: `translateX(${(100 - slideWidth * (current + current + 1)) / 2}%)`,
           }}
         >
           {items.map((item, index) => (
-            <a
+            <div
               key={index}
-              className={styles.slide}
-              style={{
-                width: `${100 / slidesPerView}%`,
-                backgroundImage: `url(${item.bg})`,
+              className={`${styles.slide} ${current === index ? styles.activeSlide : ""}`}
+              style={{ backgroundImage: `url(${item.bg})` }}
+              onClick={() => {
+                if (current === index) {
+                  window.open(item.url, "_blank");
+                } else {
+                  goToSlide(index);
+                }
               }}
-              href={item.url}
-              target="blank"
             >
               <div className={styles.content}>
                 <div className={styles.top}>
@@ -89,23 +81,20 @@ export default function Carousel() {
                   dangerouslySetInnerHTML={{ __html: item.description }}
                 ></p>
               </div>
-            </a>
+            </div>
           ))}
         </div>
-
-        {maxSlides > 0 && (
-          <div className={styles.controls}>
-            <div className={styles.indicators}>
-              {Array.from({ length: maxSlides + 1 }).map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.indicator} ${current === index ? styles.active : ""}`}
-                  onClick={() => goToSlide(index)}
-                />
-              ))}
-            </div>
+        <div className={styles.controls}>
+          <div className={styles.indicators}>
+            {items.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.indicator} ${current === index ? styles.active : ""}`}
+                onClick={() => goToSlide(index)}
+              />
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

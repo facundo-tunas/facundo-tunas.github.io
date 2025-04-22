@@ -1,21 +1,21 @@
 .carouselContainer {
   position: absolute;
+
   left: 0;
-  width: 100vw;
-  overflow: hidden;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .mainProjects {
   display: flex;
-  flex-direction: row;
-
-  width: 100%;
+  width: 100vw;
   transition: transform 0.5s ease;
 }
 
 .slide {
   flex-shrink: 0;
-  width: 100%;
+
+  width: 75%;
   height: 350px;
 
   background-color: var(--gray-text);
@@ -24,16 +24,31 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
+
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 
   display: grid;
   align-content: end;
+
+  position: relative;
+  transform: scaleX(0.95) scaleY(0.9);
+  opacity: 0.7;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+.activeSlide {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
 }
 
 .content {
   width: fit-content;
+  min-width: 50%;
   margin: 0.5rem auto;
 
   background-color: var(--background);
@@ -46,15 +61,16 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  > i {
-    width: 1rem;
-    height: 1rem;
-  }
+}
 
-  .stack {
-    display: flex;
-    gap: 0.5rem;
-  }
+.content .top > i {
+  width: 1rem;
+  height: 1rem;
+}
+
+.stack {
+  display: flex;
+  gap: 0.5rem;
 }
 
 /* control dots */
@@ -103,6 +119,8 @@
 @media (max-width: 768px) {
   .slide {
     height: 250px;
+
+    width: 85%;
   }
   .content {
     font-size: 1rem;
