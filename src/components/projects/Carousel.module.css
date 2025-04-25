@@ -3,7 +3,10 @@
 
   left: 0;
   width: 100%;
-  padding: 1rem 0;
+}
+
+.mainProjectsPositioner {
+  height: calc(450px + 2rem);
 }
 
 .mainProjects {
@@ -16,13 +19,15 @@
   flex-shrink: 0;
 
   width: 75%;
-  height: 350px;
+  height: 450px;
+
+  border-radius: var(--radius-medium);
 
   background-color: var(--gray-text);
   padding: 0 var(--inner-padding);
 
   background-size: cover;
-  background-position: center;
+  background-position: start;
   background-repeat: no-repeat;
 
   text-decoration: none;
@@ -34,22 +39,43 @@
 
   position: relative;
   transform: scaleX(0.95) scaleY(0.9);
-  opacity: 0.7;
+  filter: brightness(0.7);
   transition:
     transform 0.5s ease,
-    opacity 0.5s ease;
+    opacity 0.5s ease,
+    filter 0.5s ease;
+
+  overflow: hidden;
 }
 
 .activeSlide {
   transform: scale(1);
-  opacity: 1;
+  filter: brightness(1);
   z-index: 2;
+
+  .content {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  transition: transform 0.25s ease;
+  &:hover {
+    transform: scale(1.025);
+  }
 }
 
 .content {
+  opacity: 0;
+  transform: translateY(150%);
+  transition:
+    transform 0.25s ease 250ms,
+    opacity 0.25s ease;
+
   width: fit-content;
   min-width: 50%;
-  margin: 0.5rem auto;
+  margin-bottom: 0.5rem;
+  margin-right: auto;
+  margin-left: 0;
 
   background-color: var(--background);
   border: 1px solid var(--backpage);
@@ -114,6 +140,10 @@
   .content {
     font-size: 1.25rem;
   }
+
+  .mainProjectsPositioner {
+    height: calc(300px + 2rem);
+  }
 }
 
 @media (max-width: 768px) {
@@ -124,5 +154,9 @@
   }
   .content {
     font-size: 1rem;
+  }
+
+  .mainProjectsPositioner {
+    height: calc(250px + 2rem);
   }
 }

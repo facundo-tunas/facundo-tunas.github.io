@@ -27,4 +27,6 @@
 
   --inactive-dot: rgba(150, 150, 150, 0.5);
   --active-dot: var(--text);
+
+  --radius-medium: 5px;
 }
