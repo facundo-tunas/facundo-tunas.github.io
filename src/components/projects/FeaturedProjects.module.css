@@ -1,0 +1,48 @@
+.featuredItem {
+  width: 100%;
+  margin: 2.5% 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "content image";
+}
+.featuredItem.reverse {
+  grid-template-areas: "image content";
+}
+
+.image {
+  grid-area: image;
+  border-radius: var(--radius-medium);
+
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.content {
+  padding: 1rem;
+  background-color: var(--background);
+  border: 1px solid var(--backpage);
+
+  align-self: center;
+  justify-self: end;
+
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(50%);
+}
+.reverse .content {
+  justify-self: start;
+  transform: translateX(-50%);
+}
+
+.projectStack {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: end;
+  gap: 0.5rem;
+  i {
+    font-size: 2rem;
+  }
+}

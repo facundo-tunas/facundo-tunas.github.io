@@ -1,13 +1,13 @@
 ---
+import FeaturedProjects from "../components/projects/FeaturedProjects.astro";
 import styles from "./Projects.module.css";
-import Carousel from "../components/projects/Carousel.tsx";
 ---
 
 <div class={`${styles.container} zone`} id="projects">
   <h2 class="title">Projects</h2>
 
   <h3 class="title titleSmall">Featured Projects</h3>
-  <Carousel client:visible />
+  <FeaturedProjects />
 
   <h3 class="title titleSmall">Other Projects</h3>
 </div>

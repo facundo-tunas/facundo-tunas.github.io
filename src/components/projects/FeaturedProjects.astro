@@ -1,0 +1,28 @@
+---
+import { featuredProjects } from "../../utilities/projects";
+import { iconMap } from "../../utilities/icons";
+import styles from "./FeaturedProjects.module.css";
+---
+
+{
+  featuredProjects.map((project, index) => (
+    <div
+      class={`${styles.featuredItem} ${index % 2 === 1 ? styles.reverse : ""}`}
+    >
+      <div class={styles.content}>
+        <h4 class="title titleSmall">{project.title}</h4>
+        <p>{project.description}</p>
+
+        <div class={styles.projectStack}>
+          {project.stack.map((tech) => (
+            <i class={iconMap[tech].colored} />
+          ))}
+        </div>
+      </div>
+      <div
+        class={styles.image}
+        style={`background-image: url(${project.bgLight});`}
+      />
+    </div>
+  ))
+}
