@@ -24,10 +24,8 @@
   border-radius: var(--radius-medium);
 
   background-color: var(--gray-text);
-  padding: 0 var(--inner-padding);
-
   background-size: cover;
-  background-position: start;
+  background-position: center;
   background-repeat: no-repeat;
 
   text-decoration: none;
@@ -35,7 +33,6 @@
   cursor: pointer;
 
   display: grid;
-  align-content: end;
 
   position: relative;
   transform: scaleX(0.95) scaleY(0.9);
@@ -53,33 +50,34 @@
   filter: brightness(1);
   z-index: 2;
 
-  .content {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
   transition: transform 0.25s ease;
   &:hover {
-    transform: scale(1.025);
+    transform: scale(1.015);
+    .content {
+      opacity: 1;
+    }
   }
 }
-
 .content {
   opacity: 0;
-  transform: translateY(150%);
-  transition:
-    transform 0.25s ease 250ms,
-    opacity 0.25s ease;
+  transition: opacity 0.25s ease;
 
-  width: fit-content;
-  min-width: 50%;
-  margin-bottom: 0.5rem;
-  margin-right: auto;
-  margin-left: 0;
+  width: 100%;
+  height: 100%;
 
-  background-color: var(--background);
-  border: 1px solid var(--backpage);
+  color: #fff;
+  background-color: #0000008e;
   padding: 0.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+}
+@media (hover: none) {
+  .content {
+    opacity: 1;
+  }
 }
 
 .content .top {
@@ -135,14 +133,14 @@
 
 @media (max-width: 1024px) {
   .slide {
-    height: 300px;
+    height: 350px;
   }
   .content {
     font-size: 1.25rem;
   }
 
   .mainProjectsPositioner {
-    height: calc(300px + 2rem);
+    height: calc(350px + 2rem);
   }
 }
 
