@@ -54,3 +54,7 @@ body {
 .titleSmall {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
 }
+
+.visibleProject {
+  transform: translateX(0) !important;
+}

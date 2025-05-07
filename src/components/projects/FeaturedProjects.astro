@@ -9,7 +9,7 @@ import styles from "./FeaturedProjects.module.css";
     <div
       class={`${styles.featuredItem} ${index % 2 === 1 ? styles.reverse : ""}`}
     >
-      <div class={styles.content}>
+      <div class={styles.content} id="projectFeatured">
         <h4 class="title titleSmall">{project.title}</h4>
         <p>{project.description}</p>
 
@@ -19,10 +19,33 @@ import styles from "./FeaturedProjects.module.css";
           ))}
         </div>
       </div>
-      <div
-        class={styles.image}
-        style={`background-image: url(${project.bgLight});`}
-      />
+      <div class={`${styles.imageWrapper}`}>
+        <img
+          src={project.bgLight}
+          alt={`Screenshot of ${project.title}`}
+          loading="lazy"
+          class={styles.image}
+        />
+      </div>
     </div>
   ))
 }
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio >= 0.5) {
+          entry.target.classList.add("visibleProject");
+        }
+      });
+    },
+    {
+      threshold: 1,
+    },
+  );
+
+  document.querySelectorAll("#projectFeatured").forEach((el) => {
+    observer.observe(el);
+  });
+</script>
