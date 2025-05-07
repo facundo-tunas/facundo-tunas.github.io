@@ -24,4 +24,6 @@
 
   --title-font: "Jetbrains Mono Variable";
   --word-spacing-title: -0.3em;
+
+  --inactive-dot: rgba(150, 150, 150, 0.5);
 }
