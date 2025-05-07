@@ -3,7 +3,7 @@ import styles from "./Carousel.module.css";
 import { iconMap } from "../../utilities/icons";
 
 export default function Carousel() {
-  const [current, setCurrent] = useState(2);
+  const [current, setCurrent] = useState(1);
   const [slideWidth, setSlideWidth] = useState(75);
 
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -30,6 +30,21 @@ export default function Carousel() {
   }, []);
 
   useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      setCurrent((prev) => {
+        switch (e.key) {
+          case "ArrowLeft":
+            return prev > 0 ? prev - 1 : prev;
+          case "ArrowRight":
+            return prev < items.length - 1 ? prev + 1 : prev;
+          default:
+            return prev;
+        }
+      });
+    };
+
+    document.addEventListener("keydown", handleKeyPress);
+
     const handleResize = () => {
       setSlideWidth(window.innerWidth < 768 ? 85 : 75);
     };
@@ -39,6 +54,7 @@ export default function Carousel() {
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
 
