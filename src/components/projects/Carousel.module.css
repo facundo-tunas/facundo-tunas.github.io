@@ -16,17 +16,14 @@
 }
 
 .slide {
+  --paddingBorder: 0.5rem;
   flex-shrink: 0;
+
+  padding: var(--paddingBorder);
+  border: 1px solid;
 
   width: 75%;
   height: 450px;
-
-  border-radius: var(--radius-medium);
-
-  background-color: var(--gray-text);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 
   text-decoration: none;
   color: inherit;
@@ -36,18 +33,13 @@
 
   position: relative;
   transform: scaleX(0.95) scaleY(0.9);
-  filter: brightness(0.7);
   transition:
     transform 0.5s ease,
-    opacity 0.5s ease,
-    filter 0.5s ease;
-
-  overflow: hidden;
+    opacity 0.5s ease;
 }
 
 .activeSlide {
   transform: scale(1);
-  filter: brightness(1);
   z-index: 2;
 
   transition: transform 0.25s ease;
@@ -61,6 +53,23 @@
     opacity: 1;
   }
 }
+
+.imageWrapper {
+  background-color: var(--gray-text);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  left: var(--paddingBorder);
+  top: var(--paddingBorder);
+
+  width: calc(100% - (var(--paddingBorder) * 2));
+  height: calc(100% - (var(--paddingBorder) * 2));
+
+  z-index: -1;
+}
+
 .content {
   opacity: 0;
   transition: opacity 0.25s ease;
@@ -76,11 +85,8 @@
   flex-direction: column;
   justify-content: end;
   align-items: start;
-}
-@media (hover: none) {
-  .content {
-    opacity: 1;
-  }
+
+  text-wrap: balance;
 }
 
 .content .top {
@@ -123,7 +129,6 @@
   width: 12px;
   height: 12px;
 
-  border-radius: 50%;
   background-color: var(--inactive-dot);
 
   border: none;

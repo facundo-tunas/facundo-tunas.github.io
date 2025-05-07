@@ -89,7 +89,6 @@ export default function Carousel() {
               <div
                 key={index}
                 className={`${styles.slide} ${current === index ? styles.activeSlide : ""}`}
-                style={{ backgroundImage: `url(${bg})` }}
                 onClick={() => {
                   if (current === index) {
                     window.open(item.url, "_blank");
@@ -98,6 +97,10 @@ export default function Carousel() {
                   }
                 }}
               >
+                <div
+                  className={styles.imageWrapper}
+                  style={{ backgroundImage: `url(${bg})` }}
+                ></div>
                 <div className={styles.content}>
                   <div className={styles.top}>
                     <h4 className="title titleSmall">{item.title}</h4>
