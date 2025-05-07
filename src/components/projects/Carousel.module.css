@@ -52,10 +52,13 @@
 
   transition: transform 0.25s ease;
   &:hover {
-    transform: scale(1.015);
     .content {
-      opacity: 1;
+      opacity: 0;
     }
+    transform: scale(1.015);
+  }
+  .content {
+    opacity: 1;
   }
 }
 .content {
