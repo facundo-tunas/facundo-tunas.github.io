@@ -6,7 +6,7 @@
 }
 
 .mainProjectsPositioner {
-  height: calc(450px + 2rem);
+  height: calc(550px + 2rem);
 }
 
 .mainProjects {
@@ -16,22 +16,21 @@
 }
 
 .slide {
-  --paddingBorder: 0.5rem;
+  --paddingBorder: 0.75rem;
   flex-shrink: 0;
 
-  padding: var(--paddingBorder);
-  border: 1px solid;
-
   width: 75%;
-  height: 450px;
 
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   position: relative;
+  opacity: 0.85;
   transform: scaleX(0.95) scaleY(0.9);
   transition:
     transform 0.5s ease,
@@ -44,14 +43,9 @@
 
   transition: transform 0.25s ease;
   &:hover {
-    .content {
-      opacity: 0;
-    }
     transform: scale(1.015);
   }
-  .content {
-    opacity: 1;
-  }
+  opacity: 1;
 }
 
 .imageWrapper {
@@ -60,33 +54,33 @@
   background-position: start;
   background-repeat: no-repeat;
 
-  position: absolute;
-  left: var(--paddingBorder);
-  top: var(--paddingBorder);
-
-  width: calc(100% - (var(--paddingBorder) * 2));
-  height: calc(100% - (var(--paddingBorder) * 2));
+  width: calc(100% - (var(--paddingBorder)));
+  height: calc(450px - (var(--paddingBorder)));
 
   z-index: -1;
+  border-radius: 3px;
+  border: 1px solid var(--backpage);
+
+  position: relative;
+  overflow: visible;
 }
 
 .content {
-  opacity: 0;
   transition: opacity 0.5s ease;
 
-  width: 100%;
-  height: 100%;
+  width: fit-content;
+  height: fit-content;
 
-  color: #fff;
-  background-color: #0000008e;
   padding: 0.5rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: end;
   align-items: start;
 
   text-wrap: balance;
+
+  border: 1px solid;
+  color: var(--backpage);
 }
 
 .content .top {

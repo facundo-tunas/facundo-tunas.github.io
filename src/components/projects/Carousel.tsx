@@ -61,8 +61,7 @@ export default function Carousel() {
   const items = [
     {
       title: "Blog",
-      description:
-        "A simple and clean blog platform for writing and sharing posts.",
+      description: "My personal Blog.",
       bgDark: "/projects/blogDark.png",
       bgLight: "/projects/blogLight.png",
       url: "https://www.google.com",
@@ -78,8 +77,7 @@ export default function Carousel() {
     },
     {
       title: "File Storage",
-      description:
-        "Secure cloud storage solution with easy access and sharing.",
+      description: "Project to store files using Cloudinary.",
       bgDark: "/projects/fileStorage.png",
       bgLight: "/projects/fileStorage.png",
       stack: ["React", "CSS", "Express.js", "Node.js"],
