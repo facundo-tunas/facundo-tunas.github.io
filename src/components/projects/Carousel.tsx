@@ -90,7 +90,7 @@ export default function Carousel() {
 
   return (
     <div className={styles.mainProjectsPositioner}>
-      <div className={styles.carouselContainer}>
+      <div id="carousel" className={styles.carouselContainer}>
         <div
           className={styles.mainProjects}
           style={{
@@ -102,6 +102,7 @@ export default function Carousel() {
             return (
               <div
                 key={index}
+                id="slideElement"
                 className={`${styles.slide} ${current === index ? styles.activeSlide : ""}`}
                 onClick={() => {
                   if (current === index) {
@@ -113,6 +114,7 @@ export default function Carousel() {
               >
                 <div
                   className={styles.imageWrapper}
+                  id="imageWrapper"
                   style={{ backgroundImage: `url(${bg})` }}
                 ></div>
                 <div className={styles.bottomWrapper}>

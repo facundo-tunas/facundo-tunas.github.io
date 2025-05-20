@@ -6,7 +6,7 @@
   border: 1px solid var(--backpage);
   width: fit-content;
   height: fit-content;
-  padding: 0.75rem;
+  padding: var(--border-padding);
 }
 
 .skillsList {
@@ -45,5 +45,7 @@
 .skillItem i {
   font-size: 2.5em;
 
-  transition: opacity 0.25s ease, var(--background-transition);
+  transition:
+    opacity 0.25s ease,
+    var(--background-transition);
 }
