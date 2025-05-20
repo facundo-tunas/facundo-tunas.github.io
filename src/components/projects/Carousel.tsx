@@ -115,19 +115,21 @@ export default function Carousel() {
                   className={styles.imageWrapper}
                   style={{ backgroundImage: `url(${bg})` }}
                 ></div>
-                <div className={styles.content}>
-                  <div className={styles.top}>
-                    <h4 className="title titleSmall">{item.title}</h4>
-                    <div className={styles.stack}>
-                      {item.stack?.map((icon, index) => (
-                        <i key={index} className={iconMap[icon]?.colored} />
-                      ))}
+                <div className={styles.bottomWrapper}>
+                  <div className={styles.content}>
+                    <div className={styles.top}>
+                      <h4 className="title titleSmall">{item.title}</h4>
                     </div>
+                    <p
+                      className={styles.description}
+                      dangerouslySetInnerHTML={{ __html: item.description }}
+                    ></p>
                   </div>
-                  <p
-                    className={styles.description}
-                    dangerouslySetInnerHTML={{ __html: item.description }}
-                  ></p>
+                  <div className={styles.stack}>
+                    {item.stack?.map((icon, index) => (
+                      <i key={index} className={iconMap[icon]?.colored} />
+                    ))}
+                  </div>
                 </div>
               </div>
             );
