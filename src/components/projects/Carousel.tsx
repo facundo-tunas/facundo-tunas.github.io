@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Carousel.module.css";
 import { iconMap } from "../../utilities/icons";
+import { mainProjectsData } from "../../data/projectsData";
 
 export default function Carousel() {
   const [current, setCurrent] = useState(1);
@@ -36,7 +37,7 @@ export default function Carousel() {
           case "ArrowLeft":
             return prev > 0 ? prev - 1 : prev;
           case "ArrowRight":
-            return prev < items.length - 1 ? prev + 1 : prev;
+            return prev < mainProjectsData.length - 1 ? prev + 1 : prev;
           default:
             return prev;
         }
@@ -58,32 +59,6 @@ export default function Carousel() {
     };
   }, []);
 
-  const items = [
-    {
-      title: "Blog",
-      description: "My personal Blog.",
-      bgDark: "/projects/blogDark.png",
-      bgLight: "/projects/blogLight.png",
-      url: "https://www.google.com",
-      stack: ["React", "CSS", "Express.js", "Node.js"],
-    },
-    {
-      title: "Photo Tagging",
-      description: 'A <em>"Where\'s Waldo"</em> &nbsp;style game.',
-      bgDark: "/projects/photoTagging.png",
-      bgLight: "/projects/photoTagging.png",
-
-      stack: ["React", "CSS", "Express.js", "Node.js"],
-    },
-    {
-      title: "File Storage",
-      description: "Project to store files using Cloudinary.",
-      bgDark: "/projects/fileStorage.png",
-      bgLight: "/projects/fileStorage.png",
-      stack: ["React", "CSS", "Express.js", "Node.js"],
-    },
-  ];
-
   const goToSlide = (index: number) => {
     setCurrent(index);
   };
@@ -97,7 +72,7 @@ export default function Carousel() {
             transform: `translateX(${(100 - slideWidth * (current + current + 1)) / 2}%)`,
           }}
         >
-          {items.map((item, index) => {
+          {mainProjectsData.map((item, index) => {
             const bg = isDarkMode ? item.bgDark : item.bgLight;
             return (
               <div
@@ -106,7 +81,7 @@ export default function Carousel() {
                 className={`${styles.slide} ${current === index ? styles.activeSlide : ""}`}
                 onClick={() => {
                   if (current === index) {
-                    window.open(item.url, "_blank");
+                    window.open(item.url, "_blank", "noopener,noreferrer");
                   } else {
                     goToSlide(index);
                   }
@@ -119,9 +94,7 @@ export default function Carousel() {
                 ></div>
                 <div className={styles.bottomWrapper}>
                   <div className={styles.content}>
-                    <div className={styles.top}>
-                      <h4 className="title titleSmall">{item.title}</h4>
-                    </div>
+                    <h4 className="title titleSmall">{item.title}</h4>
                     <p
                       className={styles.description}
                       dangerouslySetInnerHTML={{ __html: item.description }}
@@ -139,7 +112,7 @@ export default function Carousel() {
         </div>
         <div className={styles.controls}>
           <div className={styles.indicators}>
-            {items.map((_, index) => (
+            {mainProjectsData.map((_, index) => (
               <button
                 key={index}
                 className={`${styles.indicator} ${current === index ? styles.active : ""}`}

@@ -1,0 +1,37 @@
+---
+import { otherProjectsData } from "../../data/projectsData";
+import { iconMap } from "../../utilities/icons";
+import styles from "./OtherProjects.module.css";
+---
+
+<div class={styles.otherProjectsGrid}>
+  {
+    otherProjectsData.map((item) => (
+      <a
+        href={item.url ?? "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={styles.projectLink}
+      >
+        <div class={styles.projectDiv}>
+          <div>
+            <img src={item.bgDark} alt={item.title} />
+            <h4 class="title titleSmall">{item.title}</h4>
+          </div>
+          <div>
+            <p>{item.description}</p>
+            <div class={styles.stack}>
+              {item.stack?.map((icon, index) => (
+                <i class={iconMap[icon]?.colored} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>
+
+<script>
+  /* change the bg of items if needed */
+</script>

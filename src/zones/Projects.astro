@@ -1,6 +1,8 @@
 ---
 import styles from "./Projects.module.css";
+
 import Carousel from "../components/projects/Carousel.tsx";
+import OtherProjects from "../components/projects/OtherProjects.astro";
 ---
 
 <div class={`${styles.container} zone`} id="projects">
@@ -10,6 +12,7 @@ import Carousel from "../components/projects/Carousel.tsx";
   <Carousel client:visible />
 
   <h3 class="title titleSmall">Other Projects</h3>
+  <OtherProjects />
 </div>
 
 <script></script>
