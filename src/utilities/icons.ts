@@ -25,6 +25,11 @@ export const iconMap: { [key: string]: IconPair } = {
     hover: "devicon-nodejs-plain-wordmark colored",
     colored: "devicon-nodejs-plain colored",
   },
+  Rust: {
+    default: "devicon-rust-original",
+    hover: "devicon-rust-line",
+    colored: "devicon-rust-original",
+  },
   WSL: {
     default: "devicon-linux-plain",
     hover: "devicon-linux-plain",
@@ -33,7 +38,7 @@ export const iconMap: { [key: string]: IconPair } = {
   Prisma: {
     default: "devicon-prisma-original",
     hover: "devicon-prisma-original-wordmark",
-    colored: "devicon-prisma-original colored",
+    colored: "devicon-prisma-original",
   },
   npm: {
     default: "devicon-npm-original-wordmark",

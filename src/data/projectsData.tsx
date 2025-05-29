@@ -11,10 +11,18 @@ export const mainProjectsData: Project[] = [
   {
     title: "Blog",
     description: "My personal Blog.",
-    bgDark: ["/projects/blogDark.png", "/projects/blogDarkHover.png"],
-    bgLight: ["/projects/blogLight.png", "/projects/blogL.png"],
+    bgDark: [
+      "/projects/blogDark.png",
+      "/projects/blogDarkHover.png",
+      "/projects/blogLogin.png",
+    ],
+    bgLight: [
+      "/projects/blogLight.png",
+      "/projects/blogLightHover.png",
+      "/projects/blogLogin.png",
+    ],
     url: "https://www.google.com",
-    stack: ["React", "CSS", "Express.js", "Node.js", "PostgreSQL"],
+    stack: ["React", "CSS", "Express.js", "Node.js", "PostgreSQL", "Prisma"],
   },
   {
     title: "Photo Tagging",
@@ -26,9 +34,9 @@ export const mainProjectsData: Project[] = [
   {
     title: "File Storage",
     description: "Project to store files using Cloudinary.",
-    bgDark: ["/projects/fileStorage.png"],
-    bgLight: ["/projects/fileStorage.png"],
-    stack: ["React", "CSS", "Express.js", "Node.js", "PostgreSQL"],
+    bgDark: ["/projects/fileStorage.png", "/projects/fileStorageHover.png"],
+    bgLight: ["/projects/fileStorage.png", "/projects/fileStorageHover.png"],
+    stack: ["React", "CSS", "Express.js", "Node.js", "PostgreSQL", "Prisma"],
   },
 ];
 
@@ -80,11 +88,21 @@ export const otherProjectsData: Project[] = [
     stack: ["JavaScript", "CSS", "HTML"],
   },
   {
-    title: "Portfolio Website",
-    description: "The website you are currently in!",
-    bgDark: ["/projects/blogDark.png"],
-    bgLight: ["/projects/blogLight.png"],
+    title: "Gaming Clips Viewer",
+    description: "Tauri app to display and manage gaming clips.",
+    bgLight: [
+      "/projects/clipsViewer.png",
+      "/projects/clipsViewerDark.png",
+      "/projects/clipsViewerDark1.png",
+      "/projects/clipsViewerLight.png",
+    ],
+    bgDark: [
+      "/projects/clipsViewer.png",
+      "/projects/clipsViewerDark.png",
+      "/projects/clipsViewerDark1.png",
+      "/projects/clipsViewerLight.png",
+    ],
     url: "https://www.google.com",
-    stack: ["React", "CSS", "Astro"],
+    stack: ["React", "CSS", "Tauri", "Rust"],
   },
 ];

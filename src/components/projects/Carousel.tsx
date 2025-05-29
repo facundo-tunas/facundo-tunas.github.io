@@ -127,7 +127,11 @@ export default function Carousel() {
                   </div>
                   <div className={styles.stack}>
                     {item.stack?.map((icon, index) => (
-                      <i key={index} className={iconMap[icon]?.colored} />
+                      <i
+                        key={index}
+                        className={iconMap[icon]?.colored}
+                        title={icon}
+                      />
                     ))}
                   </div>
                 </div>
