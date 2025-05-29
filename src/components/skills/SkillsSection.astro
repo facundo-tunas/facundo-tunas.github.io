@@ -11,7 +11,7 @@ import { iconMap } from "../../utilities/icons.ts"
   <div class={styles.skillsList}>
     {
       items.map((item: string) => (
-        <div class={`${styles.skillItem} title`}>
+        <div class={`${styles.skillItem} title`} title={item}>
           <i
             class={`${styles.icon} ${iconMap[item]?.default || "devicon-devicon-plain"}`}
           />

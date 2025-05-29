@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import styles from "./Carousel.module.css";
 import { iconMap } from "../../utilities/icons";
-import { mainProjectsData } from "../../data/projectsData";
+import { mainProjectsData, type Project } from "../../data/projectsData";
 
 export default function Carousel() {
   const [current, setCurrent] = useState(1);
   const [slideWidth, setSlideWidth] = useState(75);
 
+  const [fullScreenImg, setFullScreenImg] = useState<string | null>(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -65,6 +66,15 @@ export default function Carousel() {
 
   return (
     <div className={styles.mainProjectsPositioner}>
+      {fullScreenImg && (
+        <div
+          className={styles.fullScreenOverlay}
+          onClick={() => setFullScreenImg(null)}
+        >
+          <img src={fullScreenImg} alt="Full view" />
+        </div>
+      )}
+
       <div id="carousel" className={styles.carouselContainer}>
         <div
           className={styles.mainProjects}
@@ -72,13 +82,13 @@ export default function Carousel() {
             transform: `translateX(${(100 - slideWidth * (current + current + 1)) / 2}%)`,
           }}
         >
-          {mainProjectsData.map((item, index) => {
+          {mainProjectsData.map((item: Project, index) => {
             const bg = isDarkMode ? item.bgDark : item.bgLight;
+            const hoverBg = isDarkMode ? item.bgDarkHover : item.bgLightHover;
             return (
               <div
-                key={index}
-                id="slideElement"
                 className={`${styles.slide} ${current === index ? styles.activeSlide : ""}`}
+                key={index}
                 onClick={() => {
                   if (current === index) {
                     window.open(item.url, "_blank", "noopener,noreferrer");
@@ -91,7 +101,32 @@ export default function Carousel() {
                   className={styles.imageWrapper}
                   id="imageWrapper"
                   style={{ backgroundImage: `url(${bg})` }}
-                ></div>
+                >
+                  <div>
+                    {bg && (
+                      <img
+                        src={bg}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setFullScreenImg(bg);
+                        }}
+                        style={{ cursor: "zoom-in" }}
+                      />
+                    )}
+
+                    {hoverBg && (
+                      <img
+                        src={hoverBg}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setFullScreenImg(hoverBg);
+                        }}
+                        style={{ cursor: "zoom-in" }}
+                      />
+                    )}
+                  </div>
+                </div>
+
                 <div className={styles.bottomWrapper}>
                   <div className={styles.content}>
                     <h4 className="title titleSmall">{item.title}</h4>

@@ -1,3 +1,29 @@
+.fullScreenOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: zoom-out;
+}
+
+.fullScreenOverlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  border: 1px solid #fff;
+}
+
 .carouselContainer {
   position: absolute;
 
@@ -131,6 +157,38 @@
 
 .indicator.active {
   background-color: var(--active-dot);
+}
+
+.imageWrapper div {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  > img {
+    width: 220px;
+    height: auto;
+
+    border: 1px solid #fff;
+
+    transform: translateY(10px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.slide:hover .imageWrapper div img {
+  opacity: 1;
+  transform: translateY(0);
+
+  pointer-events: all;
 }
 
 @media (max-width: 1024px) {
