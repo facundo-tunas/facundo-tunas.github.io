@@ -12,10 +12,19 @@ import styles from "./OtherProjects.module.css";
         target="_blank"
         rel="noopener noreferrer"
         class={styles.projectLink}
+        id="otherProject"
       >
         <div class={styles.projectDiv}>
           <div>
-            <img src={item.bgDark} alt={item.title} />
+            <img
+              id="otherProjectImage"
+              src={item.bgDark}
+              data-dark={item.bgDark}
+              data-dark-hover={item.bgDarkHover}
+              data-light={item.bgLight}
+              data-light-hover={item.bgLightHover}
+              alt={item.title}
+            />
             <h4 class="title titleSmall">{item.title}</h4>
           </div>
           <div>
@@ -33,5 +42,64 @@ import styles from "./OtherProjects.module.css";
 </div>
 
 <script>
-  /* change the bg of items if needed */
+  const otherProjectDivs = document.querySelectorAll("#otherProject");
+  const otherProjectImages = document.querySelectorAll(
+    "#otherProjectImage",
+  ) as NodeListOf<HTMLImageElement>;
+
+  let isDark = !document.documentElement.classList.contains("light");
+
+  updateBackgrounds();
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        const newIsDark = !document.documentElement.classList.contains("light");
+        if (newIsDark !== isDark) {
+          isDark = newIsDark;
+          updateBackgrounds();
+        }
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  otherProjectDivs.forEach((div) => {
+    const image = div.querySelector(`img`) as HTMLImageElement;
+    if (!image) return;
+
+    div.addEventListener("mouseenter", () => {
+      const hoverSrc = isDark
+        ? image.getAttribute("data-light-hover")
+        : image.getAttribute("data-dark-hover");
+      if (hoverSrc) {
+        image.src = hoverSrc;
+      }
+    });
+
+    div.addEventListener("mouseleave", () => {
+      const normalSrc = isDark
+        ? image.getAttribute("data-light")
+        : image.getAttribute("data-dark");
+      if (normalSrc) {
+        image.src = normalSrc;
+      }
+    });
+  });
+
+  function updateBackgrounds() {
+    console.log(isDark);
+    otherProjectImages.forEach((image) => {
+      isDark
+        ? (image.src = image.getAttribute("data-light") || "")
+        : (image.src = image.getAttribute("data-dark") || "");
+    });
+  }
 </script>
