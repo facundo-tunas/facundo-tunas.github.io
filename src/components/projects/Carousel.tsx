@@ -84,7 +84,6 @@ export default function Carousel() {
         >
           {mainProjectsData.map((item: Project, index) => {
             const bg = isDarkMode ? item.bgDark : item.bgLight;
-            const hoverBg = isDarkMode ? item.bgDarkHover : item.bgLightHover;
             return (
               <div
                 className={`${styles.slide} ${current === index ? styles.activeSlide : ""}`}
@@ -100,30 +99,21 @@ export default function Carousel() {
                 <div
                   className={styles.imageWrapper}
                   id="imageWrapper"
-                  style={{ backgroundImage: `url(${bg})` }}
+                  style={{ backgroundImage: `url(${bg[0]})` }}
                 >
                   <div>
-                    {bg && (
+                    {bg.map((src, i) => (
                       <img
-                        src={bg}
+                        key={i}
+                        src={src}
                         onClick={(e) => {
+                          if (current !== index) return;
                           e.stopPropagation();
-                          setFullScreenImg(bg);
+                          setFullScreenImg(src);
                         }}
                         style={{ cursor: "zoom-in" }}
                       />
-                    )}
-
-                    {hoverBg && (
-                      <img
-                        src={hoverBg}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setFullScreenImg(hoverBg);
-                        }}
-                        style={{ cursor: "zoom-in" }}
-                      />
-                    )}
+                    ))}
                   </div>
                 </div>
 

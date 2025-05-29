@@ -18,11 +18,9 @@ import styles from "./OtherProjects.module.css";
           <div>
             <img
               id="otherProjectImage"
-              src={item.bgDark}
-              data-dark={item.bgDark}
-              data-dark-hover={item.bgDarkHover}
-              data-light={item.bgLight}
-              data-light-hover={item.bgLightHover}
+              src={item.bgDark[0]}
+              data-dark={JSON.stringify(item.bgDark)}
+              data-light={JSON.stringify(item.bgLight)}
               alt={item.title}
             />
             <h4 class="title titleSmall">{item.title}</h4>
@@ -72,34 +70,79 @@ import styles from "./OtherProjects.module.css";
   });
 
   otherProjectDivs.forEach((div) => {
-    const image = div.querySelector(`img`) as HTMLImageElement;
+    const image = div.querySelector("img") as HTMLImageElement;
     if (!image) return;
 
+    let cycleIntervalId: any = null;
+    let cycleIndex = 0;
+
     div.addEventListener("mouseenter", () => {
-      const hoverSrc = isDark
-        ? image.getAttribute("data-light-hover")
-        : image.getAttribute("data-dark-hover");
-      if (hoverSrc) {
-        image.src = hoverSrc;
+      const darkStr = image.getAttribute("data-dark");
+      const lightStr = image.getAttribute("data-light");
+
+      let darkImages = [];
+      let lightImages = [];
+
+      try {
+        darkImages = darkStr ? JSON.parse(darkStr) : [];
+      } catch {
+        console.error("Invalid JSON in data-dark");
       }
+
+      try {
+        lightImages = lightStr ? JSON.parse(lightStr) : [];
+      } catch {
+        console.error("Invalid JSON in data-light");
+      }
+
+      const cycleImages = !isDark ? darkImages : lightImages;
+
+      if (cycleImages.length <= 1) return; // no cycling needed
+
+      cycleIndex = 0;
+
+      cycleIntervalId = setInterval(() => {
+        cycleIndex = (cycleIndex + 1) % cycleImages.length;
+        image.src = cycleImages[cycleIndex] || "";
+      }, 1000);
     });
 
     div.addEventListener("mouseleave", () => {
-      const normalSrc = isDark
-        ? image.getAttribute("data-light")
-        : image.getAttribute("data-dark");
-      if (normalSrc) {
-        image.src = normalSrc;
+      if (cycleIntervalId) {
+        clearInterval(cycleIntervalId);
+        cycleIntervalId = null;
+      }
+
+      const attr = !isDark
+        ? image.getAttribute("data-dark")
+        : image.getAttribute("data-light");
+
+      if (!attr) return;
+
+      try {
+        const urls: string[] = JSON.parse(attr);
+        image.src = urls[0] || "";
+      } catch {
+        console.error("Invalid JSON in data attribute on mouseleave", attr);
       }
     });
   });
 
   function updateBackgrounds() {
-    console.log(isDark);
     otherProjectImages.forEach((image) => {
-      isDark
-        ? (image.src = image.getAttribute("data-light") || "")
-        : (image.src = image.getAttribute("data-dark") || "");
+      const attr = !isDark
+        ? image.getAttribute("data-dark")
+        : image.getAttribute("data-light");
+      if (!attr) return;
+
+      let urls: string[] = [];
+      try {
+        urls = JSON.parse(attr);
+      } catch {
+        console.error("Invalid JSON in data attribute", attr);
+      }
+
+      image.src = urls[0] || "";
     });
   }
 </script>
