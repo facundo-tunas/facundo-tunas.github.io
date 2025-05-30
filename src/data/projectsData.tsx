@@ -3,8 +3,9 @@ export interface Project {
   description: string;
   bgDark: string[];
   bgLight: string[];
-  url?: string;
+  url: string;
   stack: string[];
+  live: boolean;
 }
 
 export const mainProjectsData: Project[] = [
@@ -21,8 +22,9 @@ export const mainProjectsData: Project[] = [
       "/projects/blogLightHover.png",
       "/projects/blogLogin.png",
     ],
-    url: "https://www.google.com",
+    url: "https://odin-blog-frontend.vercel.app/",
     stack: ["React", "CSS", "Express.js", "Node.js", "PostgreSQL", "Prisma"],
+    live: true,
   },
   {
     title: "Photo Tagging",
@@ -30,6 +32,8 @@ export const mainProjectsData: Project[] = [
     bgDark: ["/projects/photoTagging.png", "/projects/photoTaggingHover.png"],
     bgLight: ["/projects/photoTagging.png", "/projects/photoTaggingHover.png"],
     stack: ["React", "CSS", "Express.js", "Node.js", "PostgreSQL"],
+    url: "https://pfm-photo-tagging-frontend.vercel.app/",
+    live: true,
   },
   {
     title: "File Storage",
@@ -37,6 +41,8 @@ export const mainProjectsData: Project[] = [
     bgDark: ["/projects/fileStorage.png", "/projects/fileStorageHover.png"],
     bgLight: ["/projects/fileStorage.png", "/projects/fileStorageHover.png"],
     stack: ["React", "CSS", "Express.js", "Node.js", "PostgreSQL", "Prisma"],
+    url: "https://github.com/Uruwhy1/pfm-fileUploader",
+    live: false,
   },
 ];
 
@@ -45,29 +51,23 @@ export const otherProjectsData: Project[] = [
     title: "Bookshelf",
     description:
       "Bookshelf application built with React, using PostgreSQL for persistant storage.",
-    bgDark: ["/projects/bookshelfDark.png", "/projects/bookshelfDarkHover.png"],
-    bgLight: [
+    bgDark: [
+      "/projects/bookshelfDark.png",
+      "/projects/bookshelfDarkHover.png",
       "/projects/bookshelfLight.png",
       "/projects/bookshelfLightHover.png",
     ],
-    url: "https://www.google.com",
+    bgLight: [
+      "/projects/bookshelfLight.png",
+      "/projects/bookshelfLightHover.png",
+      "/projects/bookshelfDark.png",
+      "/projects/bookshelfDarkHover.png",
+    ],
+    url: "https://github.com/Uruwhy1/pfm-inventoryApp",
+    live: false,
     stack: ["React", "CSS", "Astro", "PostgreSQL"],
   },
-  {
-    title: "Minesweeper Clone",
-    description:
-      "Simple Minesweeper clone using vanilla JS. Saves statistics to localStorage.",
-    bgDark: [
-      "/projects/minesweeperClone.png",
-      "/projects/minesweeperCloneHover.png",
-    ],
-    bgLight: [
-      "/projects/minesweeperClone.png",
-      "/projects/minesweeperCloneHover.png",
-    ],
-    url: "https://www.google.com",
-    stack: ["JavaScript", "CSS", "HTML"],
-  },
+
   {
     title: "Browser Homepage",
     description:
@@ -84,8 +84,9 @@ export const otherProjectsData: Project[] = [
       "/projects/browserDark.png",
       "/projects/browserDarkHover.png",
     ],
-    url: "https://www.google.com",
-    stack: ["JavaScript", "CSS", "HTML"],
+    url: "https://uruwhy1.github.io/browser-homepage/dist/index.html",
+    live: true,
+    stack: ["TypeScript", "CSS", "HTML"],
   },
   {
     title: "Gaming Clips Viewer",
@@ -102,7 +103,50 @@ export const otherProjectsData: Project[] = [
       "/projects/clipsViewerDark1.png",
       "/projects/clipsViewerLight.png",
     ],
-    url: "https://www.google.com",
-    stack: ["React", "CSS", "Tauri", "Rust"],
+    url: "https://github.com/Uruwhy1/clips-viewer",
+    live: false,
+    stack: ["React", "TypeScript", "CSS", "Tauri", "Rust"],
+  },
+  {
+    title: "Messaging App",
+    description: "A real-time messaging application using Websockets.",
+    bgDark: [
+      "/projects/messagingDark.png",
+      "/projects/messagingLight.png",
+      "/projects/messagingLogin.png",
+    ],
+    bgLight: [
+      "/projects/messagingLight.png",
+      "/projects/messagingDark.png",
+      "/projects/messagingLogin.png",
+    ],
+    url: "https://github.com/Uruwhy1/messagingApp",
+    live: false,
+    stack: ["CSS", "Node.js", "Express.js", "React"],
+  },
+  {
+    title: "Portfolio Page",
+    description: "The page you are currently in!",
+    bgDark: [],
+    bgLight: [],
+    url: "",
+    live: true,
+    stack: ["TypeScript", "React", "Astro", "CSS"],
+  },
+  {
+    title: "Minesweeper Clone",
+    description:
+      "Simple Minesweeper clone using vanilla JS. Saves statistics to localStorage.",
+    bgDark: [
+      "/projects/minesweeperClone.png",
+      "/projects/minesweeperCloneHover.png",
+    ],
+    bgLight: [
+      "/projects/minesweeperClone.png",
+      "/projects/minesweeperCloneHover.png",
+    ],
+    url: "https://uruwhy1.github.io/pfl-minesweeperClone/",
+    live: true,
+    stack: ["JavaScript", "CSS", "HTML"],
   },
 ];
