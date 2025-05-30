@@ -14,7 +14,7 @@ body {
   color: var(--text);
 
   border-radius: var(--outer-radius);
-  padding: 0 var(--inner-padding);
+  padding: 0 var(--inner-padding) var(--inner-padding) var(--inner-padding);
 
   transition: var(--background-transition);
   font-family: Lato;
