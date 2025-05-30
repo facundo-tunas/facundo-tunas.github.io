@@ -4,14 +4,14 @@ import styles from "./Home.module.css";
 ---
 
 <div class={`${styles.container} zone`} id="home">
-  <div class={styles.leftColumn}>
+  <div class=`${styles.leftColumn}`>
     <div class={`${styles.homeTitle} title`}>
-      <h1>Facundo Tuñas</h1>
-      <div>
+      <h1 class="hidden show1">Facundo Tuñas</h1>
+      <div class="hidden show2">
         <p class={styles.position}>Web Developer</p>
       </div>
     </div>
-    <div class={styles.about}>
+    <div class=`${styles.about} hidden show3`>
       <p>
         Self-taught web developer based in Montevideo, Uruguay. Most of the apps
         I've built are done with React and Express.js.
@@ -25,7 +25,7 @@ import styles from "./Home.module.css";
       <p>I like playing Minesweeper.</p>
     </div>
 
-    <div class={styles.contact}>
+    <div class=`${styles.contact} hidden show4`>
       <a
         target="_blank"
         rel="noopener noreferrer"
@@ -35,8 +35,8 @@ import styles from "./Home.module.css";
     </div>
   </div>
 
-  <div class={styles.rightColumn}>
-    <h5 class="title">Blog</h5>
+  <div class=`${styles.rightColumn}`>
+    <h5 class="title hidden show2">Blog</h5>
     <BlogPosts />
   </div>
 </div>
@@ -51,7 +51,7 @@ import styles from "./Home.module.css";
     const originalText: string = titleElement.textContent || "";
 
     // page load
-    applyGlitchEffect(titleElement, originalText);
+    // applyGlitchEffect(titleElement, originalText);
 
     // hover
     titleElement.addEventListener("mouseover", () => {
