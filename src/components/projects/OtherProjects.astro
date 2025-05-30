@@ -1,0 +1,149 @@
+---
+import { otherProjectsData } from "../../data/projectsData";
+import { iconMap } from "../../utilities/icons";
+import styles from "./OtherProjects.module.css";
+---
+
+<div class={styles.otherProjectsGrid}>
+  {
+    otherProjectsData.map((item) => (
+      <a
+        href={item.url ?? "#"}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={styles.projectLink}
+        id="otherProject"
+      >
+        <div class={styles.projectDiv}>
+          <div>
+            <img
+              id="otherProjectImage"
+              src={item.bgDark[0]}
+              data-dark={JSON.stringify(item.bgDark)}
+              data-light={JSON.stringify(item.bgLight)}
+              alt={item.title}
+            />
+            <h4 class="title titleSmall">{item.title}</h4>
+          </div>
+          <div>
+            <p>{item.description}</p>
+            <div class={styles.stack}>
+              {item.stack?.map((icon, index) => (
+                <i class={iconMap[icon]?.colored} title={icon} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </a>
+    ))
+  }
+</div>
+
+<script>
+  const otherProjectDivs = document.querySelectorAll("#otherProject");
+  const otherProjectImages = document.querySelectorAll(
+    "#otherProjectImage",
+  ) as NodeListOf<HTMLImageElement>;
+
+  let isDark = !document.documentElement.classList.contains("light");
+
+  updateBackgrounds();
+
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (
+        mutation.type === "attributes" &&
+        mutation.attributeName === "class"
+      ) {
+        const newIsDark = !document.documentElement.classList.contains("light");
+        if (newIsDark !== isDark) {
+          isDark = newIsDark;
+          updateBackgrounds();
+        }
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  otherProjectDivs.forEach((div) => {
+    const image = div.querySelector("img") as HTMLImageElement;
+    if (!image) return;
+
+    let cycleIntervalId: any = null;
+    let cycleIndex = 0;
+
+    div.addEventListener("mouseenter", () => {
+      const darkStr = image.getAttribute("data-dark");
+      const lightStr = image.getAttribute("data-light");
+
+      let darkImages = [];
+      let lightImages = [];
+
+      try {
+        darkImages = darkStr ? JSON.parse(darkStr) : [];
+      } catch {
+        console.error("Invalid JSON in data-dark");
+      }
+
+      try {
+        lightImages = lightStr ? JSON.parse(lightStr) : [];
+      } catch {
+        console.error("Invalid JSON in data-light");
+      }
+
+      const cycleImages = !isDark ? darkImages : lightImages;
+
+      if (cycleImages.length <= 1) return; // no cycling needed
+
+      cycleIndex = 1;
+      image.src = cycleImages[cycleIndex];
+
+      cycleIntervalId = setInterval(() => {
+        cycleIndex = (cycleIndex + 1) % cycleImages.length;
+        image.src = cycleImages[cycleIndex] || "";
+      }, 1000);
+    });
+
+    div.addEventListener("mouseleave", () => {
+      if (cycleIntervalId) {
+        clearInterval(cycleIntervalId);
+        cycleIntervalId = null;
+      }
+
+      const attr = !isDark
+        ? image.getAttribute("data-dark")
+        : image.getAttribute("data-light");
+
+      if (!attr) return;
+
+      try {
+        const urls: string[] = JSON.parse(attr);
+        image.src = urls[0] || "";
+      } catch {
+        console.error("Invalid JSON in data attribute on mouseleave", attr);
+      }
+    });
+  });
+
+  function updateBackgrounds() {
+    otherProjectImages.forEach((image) => {
+      const attr = !isDark
+        ? image.getAttribute("data-dark")
+        : image.getAttribute("data-light");
+      if (!attr) return;
+
+      let urls: string[] = [];
+      try {
+        urls = JSON.parse(attr);
+      } catch {
+        console.error("Invalid JSON in data attribute", attr);
+      }
+
+      image.src = urls[0] || "";
+    });
+  }
+</script>

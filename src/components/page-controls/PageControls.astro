@@ -1,11 +1,53 @@
 ---
 import PageDots from "./PageDots.astro";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
-
 import "./PageControls.css";
 ---
 
-<div class="page-controls">
+<div class="page-controls" id="pageControls">
   <PageDots />
   <ThemeSwitcher />
 </div>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const pageControls = document.getElementById("pageControls");
+    const projectSection = document.getElementById("carousel");
+
+    if (pageControls && projectSection) {
+      const originalBottom = 24;
+
+      const checkOverlap = () => {
+        const controlsRect = {
+          top: window.innerHeight - pageControls.offsetHeight - originalBottom,
+          bottom: window.innerHeight - originalBottom,
+          left: 0,
+          right: window.innerWidth,
+        };
+
+        const projectRect = projectSection.getBoundingClientRect();
+
+        const overlap =
+          controlsRect.bottom > projectRect.top &&
+          controlsRect.top < projectRect.bottom;
+
+        if (overlap) {
+          pageControls.style.transform =
+            "translateY(calc(100% - 100vh + 2rem))";
+          pageControls.style.gridTemplateAreas = '"theme" "sections"';
+        } else {
+          pageControls.style.transform = "";
+          pageControls.style.gridTemplateAreas = "";
+        }
+      };
+
+      // Initial check
+      checkOverlap();
+
+      // Optimized event listeners
+      const debouncedCheck = () => requestAnimationFrame(checkOverlap);
+      window.addEventListener("scroll", debouncedCheck);
+      window.addEventListener("resize", debouncedCheck);
+    }
+  });
+</script>

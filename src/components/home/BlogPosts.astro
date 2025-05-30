@@ -30,15 +30,13 @@ const fetchPosts = async () => {
 };
 
 blogPosts = await fetchPosts();
-let blogPosts2 = [...blogPosts];
-blogPosts.push(blogPosts2[0]);
 ---
 
 {
   blogPosts.length > 0 ? (
-    blogPosts.map((post: Post) => (
+    blogPosts.map((post: Post, index) => (
       <a
-        class={styles.post}
+        class={styles.post + " hidden show" + (index + 2)}
         href={`https://odin-blog-frontend.vercel.app/posts/${post.id}`}
         target="_blank"
       >
