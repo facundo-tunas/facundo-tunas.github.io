@@ -64,7 +64,8 @@
 .about {
   text-wrap: balance;
 
-  box-shadow: -2px 0px var(--backpage);
+  border-left: 2px solid var(--text);
+
   padding: 0 0.25rem;
   margin-left: 2px;
 }

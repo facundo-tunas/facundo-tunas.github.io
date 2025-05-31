@@ -6,12 +6,12 @@ const { title, items } = Astro.props;
 import { iconMap } from "../../utilities/icons.ts"
 ---
 
-<div class={styles.skillsSection}>
-  <p class="title titleSmall">{title}</p>
+<div class=`${styles.skillsSection} hidden show3`>
+  <p class="title titleSmall hidden show5">{title}</p>
   <div class={styles.skillsList}>
     {
-      items.map((item: string) => (
-        <div class={`${styles.skillItem} title`} title={item}>
+      items.map((item: string, index: number) => (
+        <div class={`${styles.skillItem} title hidden show${+ (index + 7)}`} title={item}>
           <i
             class={`${styles.icon} ${iconMap[item]?.default || "devicon-devicon-plain"}`}
           />

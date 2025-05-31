@@ -2,7 +2,7 @@
   --color: var(--text);
   padding: 0.25rem;
 
-  box-shadow: -2px 0px var(--color);
+  border-left: 2px solid var(--color);
   margin-left: 2px;
 
   color: var(--color);

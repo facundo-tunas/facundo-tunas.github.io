@@ -19,7 +19,7 @@ let blogPosts: Post[] = [];
 const fetchPosts = async () => {
   try {
     let response = await fetch(
-      "https://biological-adan-uruwhy-c51a7e68.koyeb.app/posts/all?limit=5&page=1",
+      "https://biological-adan-uruwhy-c51a7e68.koyeb.app/posts/all?limit=4&page=1",
     );
     let data = await response.json();
 
@@ -36,7 +36,7 @@ blogPosts = await fetchPosts();
   blogPosts.length > 0 ? (
     blogPosts.map((post: Post, index) => (
       <a
-        class={styles.post + " hidden show" + (index + 2)}
+        class={styles.post + " hidden bottom show" + (index + 5)}
         href={`https://odin-blog-frontend.vercel.app/posts/${post.id}`}
         target="_blank"
       >
