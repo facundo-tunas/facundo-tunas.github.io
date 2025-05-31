@@ -127,8 +127,18 @@ export const otherProjectsData: Project[] = [
   {
     title: "Portfolio Page",
     description: "The page you are currently in!",
-    bgDark: [],
-    bgLight: [],
+    bgDark: [
+      "/projects/portfolioDark.png",
+      "/projects/portfolioDark1.png",
+      "/projects/portfolioLight.png",
+      "/projects/portfolioLight1.png",
+    ],
+    bgLight: [
+      "/projects/portfolioLight.png",
+      "/projects/portfolioLight1.png",
+      "/projects/portfolioDark.png",
+      "/projects/portfolioDark1.png",
+    ],
     url: "",
     live: true,
     stack: ["TypeScript", "React", "Astro", "CSS"],
