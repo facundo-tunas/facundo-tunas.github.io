@@ -93,9 +93,9 @@ export const otherProjectsData: Project[] = [
     description: "Tauri app to display and manage gaming clips.",
     bgLight: [
       "/projects/clipsViewer.png",
+      "/projects/clipsViewerLight.png",
       "/projects/clipsViewerDark.png",
       "/projects/clipsViewerDark1.png",
-      "/projects/clipsViewerLight.png",
     ],
     bgDark: [
       "/projects/clipsViewer.png",

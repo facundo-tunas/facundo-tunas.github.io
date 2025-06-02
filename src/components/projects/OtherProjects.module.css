@@ -20,11 +20,15 @@
 .projectDiv {
   display: flex;
   flex-direction: column;
+  gap: 0.25rem;
 
   > div {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+  }
+  > img {
+    border: 1px solid var(--backpage);
   }
 }
 

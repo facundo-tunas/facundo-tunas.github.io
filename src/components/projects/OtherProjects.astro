@@ -15,17 +15,15 @@ import styles from "./OtherProjects.module.css";
         id="otherProject"
       >
         <div class={styles.projectDiv}>
+          <img
+            id="otherProjectImage"
+            src={item.bgDark[0]}
+            data-dark={JSON.stringify(item.bgDark)}
+            data-light={JSON.stringify(item.bgLight)}
+            alt={item.title}
+          />
           <div>
-            <img
-              id="otherProjectImage"
-              src={item.bgDark[0]}
-              data-dark={JSON.stringify(item.bgDark)}
-              data-light={JSON.stringify(item.bgLight)}
-              alt={item.title}
-            />
             <h4 class="title titleSmall">{item.title}</h4>
-          </div>
-          <div>
             <p>{item.description}</p>
             <div class={styles.stack}>
               {item.stack?.map((icon, index) => (
@@ -95,7 +93,7 @@ import styles from "./OtherProjects.module.css";
         console.error("Invalid JSON in data-light");
       }
 
-      const cycleImages = !isDark ? darkImages : lightImages;
+      const cycleImages = isDark ? darkImages : lightImages;
 
       if (cycleImages.length <= 1) return; // no cycling needed
 
@@ -114,7 +112,7 @@ import styles from "./OtherProjects.module.css";
         cycleIntervalId = null;
       }
 
-      const attr = !isDark
+      const attr = isDark
         ? image.getAttribute("data-dark")
         : image.getAttribute("data-light");
 
@@ -131,7 +129,7 @@ import styles from "./OtherProjects.module.css";
 
   function updateBackgrounds() {
     otherProjectImages.forEach((image) => {
-      const attr = !isDark
+      const attr = isDark
         ? image.getAttribute("data-dark")
         : image.getAttribute("data-light");
       if (!attr) return;
