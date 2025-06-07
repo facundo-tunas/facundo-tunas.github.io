@@ -11,4 +11,5 @@ export default defineConfig({
       sourcemap: true,
     },
   },
+  site: "https://facundo-tunas.github.io",
 });

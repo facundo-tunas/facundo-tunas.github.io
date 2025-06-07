@@ -19,6 +19,7 @@
     "astro": "^5.5.5",
     "astro-feather": "^1.0.0",
     "devicon": "^2.16.0",
+    "gh-pages": "^6.3.0",
     "lucide-astro": "^0.485.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
