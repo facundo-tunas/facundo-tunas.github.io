@@ -110,7 +110,7 @@
 
   text-wrap: balance;
 
-  min-width: 30%;
+  min-width: 40%;
 
   border: 1px solid;
   color: var(--backpage);
@@ -165,6 +165,7 @@
   left: 1rem;
 
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   gap: 0.5rem;
 
@@ -202,19 +203,28 @@
   .mainProjectsPositioner {
     height: calc(350px + 2rem);
   }
+
+  .imageWrapper div {
+    margin-right: 1rem;
+    justify-content: center;
+    flex-direction: row;
+
+    > img {
+      width: 30%;
+    }
+  }
 }
 
 @media (max-width: 768px) {
   .slide {
-    height: 250px;
-
     width: 85%;
   }
   .content {
     font-size: 1rem;
   }
 
-  .mainProjectsPositioner {
-    height: calc(250px + 2rem);
+  .stack {
+    max-width: 40%;
+    flex-wrap: wrap;
   }
 }
