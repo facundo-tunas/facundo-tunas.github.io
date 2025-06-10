@@ -6,7 +6,7 @@
   height: 100vh;
 
   background-color: rgba(0, 0, 0, 0.9);
-  z-index: 9999;
+  z-index: 99919;
 
   display: flex;
   justify-content: center;
@@ -32,6 +32,7 @@
 }
 
 .mainProjectsPositioner {
+  z-index: 1;
   height: calc(550px + 2rem);
 }
 
