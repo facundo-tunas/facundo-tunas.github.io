@@ -5,13 +5,13 @@ import Carousel from "../components/projects/Carousel.tsx";
 import OtherProjects from "../components/projects/OtherProjects.astro";
 ---
 
-<div class={`${styles.container} zone`} id="projects">
-  <h2 class="title">Projects</h2>
+<div class={`${styles.container} zone thirdSection`} id="projects">
+  <h2 class="title hidden show3">Projects</h2>
 
-  <h3 class="title titleSmall">Featured Projects</h3>
+  <h3 class="title titleSmall hidden show2">Featured Projects</h3>
   <Carousel client:visible />
 
-  <h3 class="title titleSmall">Other Projects</h3>
+  <h3 class="title titleSmall hidden show4">Other Projects</h3>
   <OtherProjects />
 </div>
 

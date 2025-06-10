@@ -65,7 +65,7 @@ export default function Carousel() {
   };
 
   return (
-    <div className={styles.mainProjectsPositioner}>
+    <div className={`${styles.mainProjectsPositioner} hidden show3`}>
       {fullScreenImg && (
         <div
           className={styles.fullScreenOverlay}

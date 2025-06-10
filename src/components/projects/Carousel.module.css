@@ -196,9 +196,6 @@
   .slide {
     height: 350px;
   }
-  .content {
-    font-size: 1.25rem;
-  }
 
   .mainProjectsPositioner {
     height: calc(350px + 2rem);
