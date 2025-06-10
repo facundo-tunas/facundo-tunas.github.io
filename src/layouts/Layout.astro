@@ -4,13 +4,12 @@ import "../styles/global.css";
 import "../styles/variables.css";
 import "../styles/startAnimation.css";
 import PageControls from "../components/page-controls/PageControls.astro";
-
 import "@fontsource/lato/100.css";
 import "@fontsource/lato/300.css";
 import "@fontsource/lato/400.css";
 import "@fontsource/lato/700.css";
 import "@fontsource/lato/900.css";
-
+import titleFont from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2";
 import "@fontsource-variable/jetbrains-mono";
 ---
 
@@ -20,11 +19,26 @@ import "@fontsource-variable/jetbrains-mono";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico" />
+    <link
+      rel="preload"
+      as="font"
+      crossorigin="anonymous"
+      href={titleFont}
+      type="font/woff2"
+      fetchpriority="high"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>Facundo Tuñas</title>
   </head>
   <body>
     <slot />
     <PageControls />
+
+    <script>
+      // Scroll to top on page load/refresh
+      window.addEventListener("load", () => {
+        window.scrollTo(0, 0);
+      });
+    </script>
   </body>
 </html>
