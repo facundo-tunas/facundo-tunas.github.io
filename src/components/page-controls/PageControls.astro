@@ -32,12 +32,9 @@ import "./PageControls.css";
           controlsRect.top < projectRect.bottom;
 
         if (overlap) {
-          pageControls.style.transform =
-            "translateY(calc(100% - 100vh + 2rem))";
-          pageControls.style.gridTemplateAreas = '"theme" "sections"';
+          pageControls.style.opacity = "0";
         } else {
-          pageControls.style.transform = "";
-          pageControls.style.gridTemplateAreas = "";
+          pageControls.style.opacity = "";
         }
       };
 
