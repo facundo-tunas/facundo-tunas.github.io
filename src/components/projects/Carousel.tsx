@@ -83,7 +83,7 @@ export default function Carousel() {
           }}
         >
           {mainProjectsData.map((item: Project, index) => {
-            const bg = isDarkMode ? item.bgDark : item.bgLight;
+            const bg = !isDarkMode ? item.bgDark : item.bgLight;
             return (
               <div
                 className={`${styles.slide} ${current === index ? styles.activeSlide : ""}`}
