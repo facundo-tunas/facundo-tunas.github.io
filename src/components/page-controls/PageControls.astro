@@ -33,8 +33,10 @@ import "./PageControls.css";
 
         if (overlap) {
           pageControls.style.opacity = "0";
+          pageControls.style.pointerEvents = "none";
         } else {
           pageControls.style.opacity = "";
+          pageControls.style.pointerEvents = "";
         }
       };
 

@@ -71,7 +71,7 @@ export default function Carousel() {
           className={styles.fullScreenOverlay}
           onClick={() => setFullScreenImg(null)}
         >
-          <img src={fullScreenImg} alt="Full view" />
+          <img loading="lazy" src={fullScreenImg} alt="Full view" />
         </div>
       )}
 
@@ -96,12 +96,9 @@ export default function Carousel() {
                   }
                 }}
               >
-                <div
-                  className={styles.imageWrapper}
-                  id="imageWrapper"
-                  style={{ backgroundImage: `url(${bg[0]})` }}
-                >
-                  <div>
+                <div className={styles.imageWrapper} id="imageWrapper">
+                  <img loading="lazy" src={bg[0]} alt="" />
+                  <div className={styles.previewImages}>
                     {bg.map((src, i) => (
                       <img
                         key={i}
@@ -111,6 +108,7 @@ export default function Carousel() {
                           e.stopPropagation();
                           setFullScreenImg(src);
                         }}
+                        loading="lazy"
                         style={{ cursor: "zoom-in" }}
                       />
                     ))}
