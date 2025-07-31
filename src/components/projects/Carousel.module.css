@@ -225,7 +225,7 @@
 
 @media (max-width: 768px) {
   .mainProjectsPositioner {
-    --carouselHeight: 250px;
+    --carouselHeight: 300px;
   }
   .slide {
     width: 85%;

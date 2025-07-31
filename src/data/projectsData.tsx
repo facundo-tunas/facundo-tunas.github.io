@@ -50,7 +50,7 @@ export const otherProjectsData: Project[] = [
   {
     title: "Bookshelf",
     description:
-      "Bookshelf application built with React, using PostgreSQL for persistant storage.",
+      "Bookshelf application built with EJS, using PostgreSQL for persistant storage.",
     bgDark: [
       "/projects/bookshelfDark.png",
       "/projects/bookshelfDarkHover.png",
