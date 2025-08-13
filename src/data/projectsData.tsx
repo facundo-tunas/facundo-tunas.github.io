@@ -51,17 +51,10 @@ export const otherProjectsData: Project[] = [
     title: "Bookshelf",
     description:
       "Bookshelf application built with EJS, using PostgreSQL for persistant storage.",
-    bgDark: [
-      "/projects/bookshelfDark.png",
-      "/projects/bookshelfDarkHover.png",
-      "/projects/bookshelfLight.png",
-      "/projects/bookshelfLightHover.png",
-    ],
+    bgDark: ["/projects/bookshelfDark.png", "/projects/bookshelfDarkHover.png"],
     bgLight: [
       "/projects/bookshelfLight.png",
       "/projects/bookshelfLightHover.png",
-      "/projects/bookshelfDark.png",
-      "/projects/bookshelfDarkHover.png",
     ],
     url: "https://github.com/facundo-tunas/pfm-inventoryApp",
     live: false,
@@ -72,18 +65,8 @@ export const otherProjectsData: Project[] = [
     title: "Browser Homepage",
     description:
       "Custom browser startpage, with bookmarks, smart search and different themes.",
-    bgDark: [
-      "/projects/browserDark.png",
-      "/projects/browserDarkHover.png",
-      "/projects/browserLight.png",
-      "/projects/browserLightHover.png",
-    ],
-    bgLight: [
-      "/projects/browserLight.png",
-      "/projects/browserLightHover.png",
-      "/projects/browserDark.png",
-      "/projects/browserDarkHover.png",
-    ],
+    bgDark: ["/projects/browserDark.png", "/projects/browserDarkHover.png"],
+    bgLight: ["/projects/browserLight.png", "/projects/browserLightHover.png"],
     url: "https://facundo-tunas.github.io/browser-homepage/dist/index.html",
     live: true,
     stack: ["TypeScript", "CSS", "HTML"],
@@ -91,18 +74,8 @@ export const otherProjectsData: Project[] = [
   {
     title: "Gaming Clips Viewer",
     description: "Tauri app to display and manage gaming clips.",
-    bgLight: [
-      "/projects/clipsViewer.png",
-      "/projects/clipsViewerLight.png",
-      "/projects/clipsViewerDark.png",
-      "/projects/clipsViewerDark1.png",
-    ],
-    bgDark: [
-      "/projects/clipsViewer.png",
-      "/projects/clipsViewerDark.png",
-      "/projects/clipsViewerDark1.png",
-      "/projects/clipsViewerLight.png",
-    ],
+    bgLight: ["/projects/clipsViewer.png", "/projects/clipsViewerLight.png"],
+    bgDark: ["/projects/clipsViewer.png", "/projects/clipsViewerDark.png"],
     url: "https://github.com/facundo-tunas/clips-viewer",
     live: false,
     stack: ["React", "TypeScript", "CSS", "Tauri", "Rust"],
@@ -112,12 +85,10 @@ export const otherProjectsData: Project[] = [
     description: "A real-time messaging application using Websockets.",
     bgDark: [
       "/projects/messagingDark.png",
-      "/projects/messagingLight.png",
       "/projects/messagingLogin.png",
     ],
     bgLight: [
       "/projects/messagingLight.png",
-      "/projects/messagingDark.png",
       "/projects/messagingLogin.png",
     ],
     url: "https://github.com/facundo-tunas/messagingApp",
@@ -130,14 +101,11 @@ export const otherProjectsData: Project[] = [
     bgDark: [
       "/projects/portfolioDark.png",
       "/projects/portfolioDark1.png",
-      "/projects/portfolioLight.png",
-      "/projects/portfolioLight1.png",
+
     ],
     bgLight: [
       "/projects/portfolioLight.png",
       "/projects/portfolioLight1.png",
-      "/projects/portfolioDark.png",
-      "/projects/portfolioDark1.png",
     ],
     url: "",
     live: true,

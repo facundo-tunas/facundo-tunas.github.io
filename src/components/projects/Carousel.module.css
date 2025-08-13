@@ -73,6 +73,10 @@
   z-index: 2;
   filter: brightness(1);
 
+  .bottomWrapper {
+    opacity: 1;
+  }
+
   &:hover {
     .content {
       background-color: var(--backpage);
@@ -109,6 +113,9 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .content {

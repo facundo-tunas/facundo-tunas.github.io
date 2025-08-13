@@ -1,6 +1,6 @@
 .otherProjectsGrid {
   --grid-maxSize: 1fr;
-  --grid-size: 40%;
+  --grid-size: 33%;
 
   display: grid;
   justify-content: center;
@@ -20,7 +20,7 @@
 
   transition: transform 0.2s ease;
   &:hover {
-    transform: scale(1.025);
+    transform: translateY(-0.5rem);
   }
 }
 
