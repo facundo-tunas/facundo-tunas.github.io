@@ -13,6 +13,7 @@
 
   transition: opacity 0.25s ease;
 }
+
 /* ------------------------------------------------------*/
 
 #theme-switcher {
@@ -32,11 +33,12 @@
   grid-area: theme;
 }
 
-.moon > svg,
-.sun > svg {
+.moon>svg,
+.sun>svg {
   stroke: var(--background);
   fill: var(--background);
 }
+
 .sun {
   display: none;
 }
@@ -44,21 +46,51 @@
 :root.light .moon {
   display: none;
 }
+
 :root.light .sun {
   display: block;
 }
 
-.animate > span {
+.animate>span {
   animation: spin 0.6s 1 ease;
 }
+
 @keyframes spin {
   from {
     rotate: 0;
   }
+
   to {
     rotate: 360deg;
   }
 }
+
+::view-transition-group(root) {
+  animation-duration: 1.5s;
+}
+      
+::view-transition-new(root) {
+  animation-name: reveal;
+  animation-fill-mode: both;
+}
+
+::view-transition-old(root)
+ {
+  animation: none;
+  animation-fill-mode: both;
+  z-index: -1;
+}
+
+
+@keyframes reveal{
+  from {
+    clip-path: polygon(171% 50%, 50% 171%, 50% 171%, 171% 50%);
+  }
+  to {
+    clip-path: polygon(171% 50%, 50% 171%, -50% 71%, 50% -71%);
+  }
+}
+
 
 /* ------------------------------------------------------*/
 

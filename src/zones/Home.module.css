@@ -65,7 +65,9 @@
 }
 
 .about {
-  text-wrap: balance;
+  > p {
+    text-wrap: balance;
+  }
 
   border-left: 2px solid var(--text);
 

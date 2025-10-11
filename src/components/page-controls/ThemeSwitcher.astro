@@ -20,19 +20,23 @@ import { MoonIcon, SunIcon } from "astro-feather";
     };
 
     const toggleTheme = async (element: HTMLElement) => {
-      element.classList.add("animate");
-      await new Promise((resolve) => setTimeout(resolve, 150));
-
       const currentTheme = document.documentElement.classList.contains("light")
         ? "light"
         : "dark";
       const newTheme = currentTheme === "light" ? "dark" : "light";
 
-      setTimeout(() => {
-        element.classList.remove("animate");
-      }, 600);
+      if (document.startViewTransition) {
+        document.startViewTransition(() => applyTheme(newTheme));
+      } else {
+        element.classList.add("animate");
+        await new Promise((resolve) => setTimeout(resolve, 150));
 
-      applyTheme(newTheme);
+        setTimeout(() => {
+          element.classList.remove("animate");
+        }, 600);
+
+        applyTheme(newTheme);
+      }
     };
 
     document.addEventListener("DOMContentLoaded", () => {
