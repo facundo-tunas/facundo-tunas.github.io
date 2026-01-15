@@ -77,7 +77,7 @@
 
 .contact {
   display: flex;
-  gap: 0.25rem;
+  gap: var(--border-padding);
   margin-top: 0.5rem;
 
   a {
