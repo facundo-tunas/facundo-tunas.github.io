@@ -116,14 +116,8 @@ export default function Carousel() {
                 </div>
 
                 <div className={styles.bottomWrapper}>
-                  <div className={styles.content}>
-                    <h4 className="title titleSmall">{item.title}</h4>
-                    <p
-                      className={styles.description}
-                      dangerouslySetInnerHTML={{ __html: item.description }}
-                    ></p>
-                  </div>
-                  <div className={styles.stack}>
+                  <h4 className="title titleSmall">{item.title}</h4>
+                  <div className={`${styles.stack} titleSmall`}>
                     {item.stack?.map((icon, index) => (
                       <i
                         key={index}

@@ -78,7 +78,7 @@
   }
 
   &:hover {
-    .content {
+    h4 {
       background-color: var(--backpage);
       color: var(--background);
     }
@@ -99,7 +99,7 @@
   position: relative;
   overflow: hidden;
 
-  > img {
+  >img {
     object-fit: cover;
     object-position: top;
     background-repeat: no-repeat;
@@ -111,42 +111,29 @@
 
 .bottomWrapper {
   display: flex;
+  gap: var(--border-padding);
   justify-content: space-between;
-  align-items: start;
+
 
   opacity: 0;
   transition: opacity 0.3s ease;
-}
 
-.content {
-  transition: opacity 0.5s ease;
-
-  width: fit-content;
-  height: fit-content;
-
-  padding: var(--border-padding);
-
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-
-  text-wrap: balance;
-
-  min-width: 40%;
-
-  border: 1px solid;
-  color: var(--backpage);
-}
-
-.stack {
-  padding: 0.5rem;
-  display: flex;
-  gap: 0.5rem;
-
-  > i {
-    font-size: 2rem;
+  >* {
+    padding: var(--border-padding);
+    border: 1px solid var(--backpage);
   }
+
+  .stack {
+    align-self: flex-end;
+
+    border: 0;
+
+    display: flex;
+    gap: 0.5rem;
+  }
+
 }
+
 
 /* control dots */
 
@@ -191,7 +178,7 @@
   flex-direction: column;
   gap: 0.5rem;
 
-  > img {
+  >img {
     width: 220px;
     height: auto;
 
@@ -224,7 +211,7 @@
     justify-content: center;
     flex-direction: row;
 
-    > img {
+    >img {
       width: 30%;
     }
   }
@@ -234,9 +221,11 @@
   .mainProjectsPositioner {
     --carouselHeight: 300px;
   }
+
   .slide {
     width: 85%;
   }
+
   .content {
     font-size: 1rem;
   }

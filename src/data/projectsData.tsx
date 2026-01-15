@@ -10,7 +10,7 @@ export interface Project {
 
 export const mainProjectsData: Project[] = [
   {
-    title: "Blog",
+    title: "Personal Blog",
     description: "My personal Blog.",
     bgDark: [
       "/projects/blogDark.png",
