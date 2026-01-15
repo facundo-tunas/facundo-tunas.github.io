@@ -33,7 +33,7 @@ blogPosts = await fetchPosts();
 ---
 
 {
-  blogPosts.length > 0 ? (
+  blogPosts?.length > 0 ? (
     blogPosts.map((post: Post, index) => (
       <a
         class={styles.post + " hidden bottom show" + (index + 5)}
