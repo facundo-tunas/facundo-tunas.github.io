@@ -4,10 +4,8 @@
 
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(var(--grid-size), var(--grid-maxSize))
-  );
+  grid-template-columns: repeat(auto-fit,
+      minmax(var(--grid-size), var(--grid-maxSize)));
   grid-template-rows: auto;
   gap: 1.5rem;
 
@@ -19,6 +17,7 @@
   color: var(--text);
 
   transition: transform 0.2s ease;
+
   &:hover {
     transform: translateY(-0.5rem);
   }
@@ -27,23 +26,53 @@
 .projectDiv {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: var(--border-padding);
 
-  > div {
-    display: flex;
-    flex-direction: column;
+  img {
+    aspect-ratio: 16 / 9;
   }
-  > img {
+
+  >img,
+  .projectHeader>div {
     border: 1px solid var(--backpage);
   }
+
+  &:hover {
+    >div:has(> h4) {
+      background-color: var(--backpage);
+      color: var(--background)
+    }
+  }
+}
+
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--border-padding);
+  flex-wrap: wrap;
+
+
+  >div {
+    padding: var(--border-padding);
+    width: fit-content;
+  }
+}
+
+.projectHeader>h4 {
+  white-space: nowrap;
+}
+
+.projectHeader>.stack {
+  justify-self: unset;
 }
 
 .stack {
   display: flex;
   gap: 0.5rem;
 
-  margin-top: 0.5rem;
-  > i {
+  >i {
     font-size: 1.5rem;
   }
 }

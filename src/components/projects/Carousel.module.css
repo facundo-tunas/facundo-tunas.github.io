@@ -32,7 +32,7 @@
 }
 
 .mainProjectsPositioner {
-  --carouselHeight: 550px;
+  --carouselHeight: 600px;
 
   z-index: 1;
   height: calc(var(--carouselHeight) + 2rem);
@@ -121,14 +121,16 @@
   >* {
     padding: var(--border-padding);
     border: 1px solid var(--backpage);
+
+    height: fit-content;
   }
 
   .stack {
     align-self: flex-end;
-
-    border: 0;
+    height: 100%;
 
     display: flex;
+    justify-content: center;
     gap: 0.5rem;
   }
 

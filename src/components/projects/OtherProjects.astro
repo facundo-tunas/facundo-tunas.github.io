@@ -23,15 +23,16 @@ import styles from "./OtherProjects.module.css";
             data-light={JSON.stringify(item.bgLight)}
             alt={item.title}
           />
+      <div class={styles.projectHeader}>
           <div>
             <h4 class="title titleSmall">{item.title}</h4>
-            <p>{item.description}</p>
-            <div class={styles.stack}>
-              {item.stack?.map((icon, index) => (
-                <i class={iconMap[icon]?.colored} title={icon} />
-              ))}
-            </div>
           </div>
+          <div class={styles.stack}>
+            {item.stack?.map((icon, index) => (
+              <i class={iconMap[icon]?.colored} title={icon} />
+            ))}
+          </div>
+      </div>
         </div>
       </a>
     ))
