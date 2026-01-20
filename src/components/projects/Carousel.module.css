@@ -68,6 +68,17 @@
   filter: brightness(0.5);
 }
 
+.live {
+  color: var(--backpage);
+  background-color: var(--background);
+  border: 1px solid var(--backpage);
+
+  position: absolute;
+  top: var(--border-padding);
+  left: var(--border-padding);
+  padding: var(--border-padding);
+}
+
 .activeSlide {
   transform: scale(1);
   z-index: 2;
@@ -78,6 +89,7 @@
   }
 
   &:hover {
+
     h4 {
       background-color: var(--backpage);
       color: var(--background);

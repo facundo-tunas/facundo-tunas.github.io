@@ -96,7 +96,8 @@ export default function Carousel() {
                   }
                 }}
               >
-                <div className={styles.imageWrapper} id="imageWrapper">
+                <div className={`${styles.imageWrapper}`} id="imageWrapper">
+                  {item.live && <span className={`titleSmallest ${styles.live}`}>LIVE</span>}
                   <img loading="lazy" src={bg[0]} alt="" />
                   <div className={styles.previewImages}>
                     {bg.map((src, i) => (
@@ -116,7 +117,7 @@ export default function Carousel() {
                 </div>
 
                 <div className={styles.bottomWrapper}>
-                  <h4 className="title titleSmall">{item.title}</h4>
+                  <h4 className={`title titleSmall`}>{item.title}</h4>
                   <div className={`${styles.stack} titleSmall`}>
                     {item.stack?.map((icon, index) => (
                       <i

@@ -24,6 +24,8 @@
 }
 
 .projectDiv {
+  position: relative;
+
   display: flex;
   flex-direction: column;
   gap: var(--border-padding);
@@ -45,6 +47,16 @@
   }
 }
 
+.live {
+  color: var(--backpage);
+  background-color: var(--background);
+  border: 1px solid var(--backpage);
+
+  position: absolute;
+  top: var(--border-padding);
+  left: var(--border-padding);
+  padding: var(--border-padding);
+}
 
 .projectHeader {
   display: flex;

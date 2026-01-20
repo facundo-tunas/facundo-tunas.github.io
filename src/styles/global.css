@@ -1,8 +1,10 @@
 html {
+
   /* disable scrollbar */
   &::-webkit-scrollbar {
     display: none;
   }
+
   -ms-overflow-style: none;
   scrollbar-width: none;
 
@@ -39,7 +41,7 @@ body {
   gap: 1rem;
 }
 
-.title {
+.title, .titleSmall, .titleSmallest {
   font-size: clamp(1.5rem, 2.5vw, 2.5rem);
   line-height: 1.1;
 
@@ -48,7 +50,8 @@ body {
   font-weight: 700;
 
   word-spacing: var(--word-spacing-title);
-  > * {
+
+  >* {
     word-spacing: var(--word-spacing-title);
   }
 }
@@ -56,4 +59,8 @@ body {
 .titleSmall {
   font-size: clamp(1.25rem, 2vw, 1.5rem);
   font-weight: 600;
+}
+
+.titleSmallest {
+  font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
 }
