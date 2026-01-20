@@ -10,7 +10,7 @@ export interface Project {
 
 export const mainProjectsData: Project[] = [
   {
-    title: "Personal Blog",
+    title: "Blog Platform",
     description: "My personal Blog.",
     bgDark: [
       "/projects/blogDark.png",
@@ -27,7 +27,7 @@ export const mainProjectsData: Project[] = [
     live: true,
   },
   {
-    title: "Photo Tagging",
+    title: "Character Finding Game",
     description: 'A <em>"Where\'s Waldo"</em> &nbsp;style game.',
     bgDark: ["/projects/photoTagging.png", "/projects/photoTaggingHover.png"],
     bgLight: ["/projects/photoTagging.png", "/projects/photoTaggingHover.png"],
@@ -36,7 +36,7 @@ export const mainProjectsData: Project[] = [
     live: true,
   },
   {
-    title: "File Storage",
+    title: "File Upload Platform",
     description: "Project to store files using Cloudinary.",
     bgDark: ["/projects/fileStorage.png", "/projects/fileStorageHover.png"],
     bgLight: ["/projects/fileStorage.png", "/projects/fileStorageHover.png"],
@@ -48,7 +48,7 @@ export const mainProjectsData: Project[] = [
 
 export const otherProjectsData: Project[] = [
   {
-    title: "Bookshelf",
+    title: "Book Inventory Manager",
     description:
       "Bookshelf application built with EJS, using PostgreSQL for persistant storage.",
     bgDark: ["/projects/bookshelfDark.png", "/projects/bookshelfDarkHover.png"],
@@ -62,7 +62,7 @@ export const otherProjectsData: Project[] = [
   },
 
   {
-    title: "Browser Homepage",
+    title: "Custom Browser Homepage",
     description:
       "Custom browser startpage, with bookmarks, smart search and different themes.",
     bgDark: ["/projects/browserDark.png", "/projects/browserDarkHover.png"],
@@ -72,7 +72,7 @@ export const otherProjectsData: Project[] = [
     stack: ["TypeScript", "CSS", "HTML"],
   },
   {
-    title: "Gaming Clips Viewer",
+    title: "Gaming Clips Manager",
     description: "Tauri app to display and manage gaming clips.",
     bgLight: ["/projects/clipsViewer.png", "/projects/clipsViewerLight.png"],
     bgDark: ["/projects/clipsViewer.png", "/projects/clipsViewerDark.png"],
@@ -81,7 +81,7 @@ export const otherProjectsData: Project[] = [
     stack: ["React", "TypeScript", "CSS", "Tauri", "Rust"],
   },
   {
-    title: "Messaging App",
+    title: "WebSocket Messaging App",
     description: "A real-time messaging application using Websockets.",
     bgDark: [
       "/projects/messagingDark.png",
@@ -112,7 +112,7 @@ export const otherProjectsData: Project[] = [
     stack: ["TypeScript", "React", "Astro", "CSS"],
   },
   {
-    title: "Minesweeper Clone",
+    title: "Multi-mode Minesweeper",
     description:
       "Simple Minesweeper clone using vanilla JS. Saves statistics to localStorage.",
     bgDark: [
@@ -123,7 +123,7 @@ export const otherProjectsData: Project[] = [
       "/projects/minesweeperClone.png",
       "/projects/minesweeperCloneHover.png",
     ],
-    url: "https://facundo-tunas.github.io/pfl-minesweeperClone/",
+    url: "https://facundo-tunas.github.io/multiModeMinsweeper/",
     live: true,
     stack: ["JavaScript", "CSS", "HTML"],
   },
