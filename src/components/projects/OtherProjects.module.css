@@ -40,7 +40,7 @@
   }
 
   &:hover {
-    >div:has(> h4) {
+    div:has(> h4) {
       background-color: var(--backpage);
       color: var(--background)
     }

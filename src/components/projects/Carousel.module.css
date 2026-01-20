@@ -98,7 +98,7 @@
 }
 
 .imageWrapper {
-  --height: calc(var(--carouselHeight) - (var(--paddingBorder)));
+  --height: calc(var(--carouselHeight) - (var(--paddingBorder)) - 1px);
 
   background-color: var(--gray-text);
 
@@ -125,6 +125,7 @@
   display: flex;
   gap: var(--border-padding);
   justify-content: space-between;
+  flex-wrap: wrap;
 
 
   opacity: 0;
@@ -135,12 +136,10 @@
     border: 1px solid var(--backpage);
 
     height: fit-content;
+    width: fit-content;
   }
 
   .stack {
-    align-self: flex-end;
-    height: 100%;
-
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -215,7 +214,7 @@
   pointer-events: all;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1224px) {
   .mainProjectsPositioner {
     --carouselHeight: 350px;
   }
@@ -233,7 +232,11 @@
 
 @media (max-width: 768px) {
   .mainProjectsPositioner {
-    --carouselHeight: 300px;
+    --carouselHeight: 302px;
+  }
+
+  .bottomWrapper {
+    flex-direction: column;
   }
 
   .slide {
@@ -242,10 +245,5 @@
 
   .content {
     font-size: 1rem;
-  }
-
-  .stack {
-    max-width: 40%;
-    flex-wrap: wrap;
   }
 }
